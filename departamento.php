@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<?php
+		<?php
 session_start();
 if (@!$_SESSION['user']) {
-	header("Location:index.php");
+	header("Location:index2.php");
 }
 ?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Oficina Editorial - ITH -</title>
+    <title>Editorial ITH</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 
-    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="shortcut icon" href="images/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
@@ -41,24 +40,25 @@ body,td,th {
 <table width="100%" border="0">
   <tr>
     <td>&nbsp;</td>
+    <!--<td width="96%" align="center"><img src="editorial.png" width="820" height="100" /></td>-->
     <td>&nbsp;</td>
   </tr>
 <div class="container">
 <header class="header">
 <div class="row">
-</div>
+	</div>
 </header>
 
   <!-- Navbar
     ================================================== -->
+
 
 <div class="navbar">
   <div class="navbar-inner">
 	<div class="container">
 	  <div class="nav-collapse">
 		<ul class="nav">
-			<li class=""><a href="admin.php">ADMINISTRADOR DEL SITIO</a></li>
-			<li class=""><a href="adminenlaces.php">AGREGAR ENLACES</a></li>
+			<li class=""><a href="principal.php">Principal</a></li>
 			 
 	
 		</ul>
@@ -66,7 +66,8 @@ body,td,th {
 		
 		</form>
 		<ul class="nav pull-right">
-			  <li><a href="index.php"> Cerrar Cesión </a></li>			 
+		<li><a href="">Bienvenido <strong><?php echo $_SESSION['user'];?></strong> </a></li>
+			  <li><a href="desconectar.php"> Cerrar Cesión </a></li>			 
 		</ul>
 	  </div><!-- /.nav-collapse -->
 	</div>
@@ -83,7 +84,59 @@ body,td,th {
 		<div class="caption">
 		
 <!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
+		<h2 style="color: #605C5C">Departamentos</h2>	
+		<div class="well well-small">
+		<hr class="soft"/>
+		<h4 style="color: #837E7E"; align="center">Nuevo Servicio</h4>
+		<div class="row-fluid">
 		
+
+		<form action="ejecutaactualizar.php" method="post">
+		<p align="center">
+			<b style="color: #837E7E">Departamento</b><br><select style="border-radius:15px;" type="text" name="depart" required>
+			   <option value="sistemas">Sistemas e Informatica</option>
+			   <option value="ciencias">Electrica-Electronica</option>
+			   <option value="electronica">Metal-Mecanica</option>
+			   <option value="admin" selected>Econ-Admin</option>
+</select><br>
+			<b style="color: #837E7E">Coordinador</b><br> <select style="border-radius:15px;" type="text" name="depart" required>
+			   <option value="sistemas">Jorge David Gutierrez Cota</option>
+			   <option value="ciencias">Ruben Dario Soto Patron</option>
+			   <option value="electronica"></option>
+			   <option value="admin" selected></option>
+</select><br>
+			<b style="color: #837E7E">Numero de Copias</b><br> <input style="border-radius:15px;" type="text" name="copys" required><br>
+</select><br>
+			<b style="color: #837E7E">Clave</b><br> <select style="border-radius:15px;" type="text" name="depart" required>
+			   <option value="Examenes">001</option>
+			   <option value="Recursos">002</option>
+			   <option value="Evento departamental">ESP001</option>
+			   <option value="Evento Administrativo" selected>ESP002</option>
+</select><br>
+		</p>
+				<input class="btn btn-primary" value="Guardar">
+			</form>
+
+				 
+		
+		<div class="span8">
+		
+		</div>	
+		</div>	
+		<br/>
+		
+
+
+		<!--EMPIEZA DESLIZABLE-->
+		
+		 <!--TERMINA DESLIZABLE-->
+
+
+
+		
+		
+		</div>
+
 		
 
 
