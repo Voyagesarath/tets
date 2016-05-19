@@ -4,7 +4,7 @@ session_start();
 if (isset($_SESSION['user'])) {
 	$tipo = $_SESSION['user'];
 } else{
-	header("Location:index.php");
+	header("Location:../index.php");
 }
 
 ?>
