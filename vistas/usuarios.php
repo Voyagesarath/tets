@@ -11,14 +11,14 @@ if (@!$_SESSION['user']) {
     <title>Editorial ITH</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <link rel="stylesheet" type="text/css" href="css/estilos.css">
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../css/estilos.css">
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 
     <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
   </head>
   <style type="text/css">
 body {
@@ -31,7 +31,7 @@ body,td,th {
 
 </style>
 <header>
-  <img src="header-ith.png">
+  <img src="../images/header-ith.png">
 
 </header>
 <p>&nbsp;</p>
@@ -67,7 +67,7 @@ body,td,th {
 		</form>
 		<ul class="nav pull-right">
 		<li><a href="">Bienvenido <strong><?php echo $_SESSION['user'];?></strong> </a></li>
-			  <li><a href="desconectar.php"> Cerrar Cesión </a></li>			 
+			  <li><a href="../php/desconectar.php"> Cerrar Cesión </a></li>			 
 		</ul>
 	  </div><!-- /.nav-collapse -->
 	</div>
@@ -92,7 +92,7 @@ body,td,th {
 		
 			<?php
 
-				require("connect_db.php");
+				require("../php/connect_db.php");
 				$sql=("SELECT * FROM user");
 				$query=mysql_query($sql);
 
@@ -121,8 +121,8 @@ body,td,th {
 				    	echo "<td>$arreglo[4]</td>";
 				    	echo "<td>$arreglo[5]</td>";
 
-				    	echo "<td><a href='actualizar.php?id=$arreglo[0]'><img src='images/actualizar.gif' class='img-rounded'></td>";
-						echo "<td><a href='admin.php?id=$arreglo[0]&idborrar=2'><img src='images/eliminar.png' class='img-rounded'/></a></td>";
+				    	echo "<td><a href='../php/actualizar.php?id=$arreglo[0]'><img src='../images/actualizar.gif' class='img-rounded'></td>";
+						echo "<td><a href='admin.php?id=$arreglo[0]&idborrar=2'><img src='../images/eliminar.png' class='img-rounded'/></a></td>";
 						
 
 						

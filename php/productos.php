@@ -14,7 +14,7 @@ if(strlen($_GET['desde'])>0 and strlen($_GET['hasta'])>0){
 	$verHasta = '__/__/____';
 }
 require('../fpdf/fpdf.php');
-require('../connect_db.php');
+require('connect_db.php');
 
 $pdf = new FPDF();
 $pdf->AddPage();

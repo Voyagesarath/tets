@@ -1,5 +1,5 @@
 <?php
-include('../connect_db.php');
+include('connect_db.php');
 
 $desde = $_POST['desde'];
 $hasta = $_POST['hasta'];

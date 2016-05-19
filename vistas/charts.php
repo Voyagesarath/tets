@@ -14,18 +14,18 @@ if (@!$_SESSION['user']) {
 
     <!-- Bootstrap -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
-    <link href="saphv2.css" rel="stylesheet">
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+    <link href="../saphv2.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 
     <link rel="shortcut icon" href="images/favicon.ico">
     </head>
 <header class="header">
   <div class="container">
-  <img src="header-ith.png">
+  <img src="../images/header-ith.png">
 <div class="row">
 </div>
 </header>
@@ -52,7 +52,7 @@ if (@!$_SESSION['user']) {
     </form>
           <ul class="nav pull-right">
         <li><a href="">Bienvenido <strong><?php echo $_SESSION['user'];?></strong> </a></li>
-          <li><a href="desconectar.php"> Cerrar Cesión </a></li>       
+          <li><a href="../php/desconectar.php"> Cerrar Cesión </a></li>       
     </ul>
 </div>
       </ul>
@@ -158,10 +158,10 @@ if (@!$_SESSION['user']) {
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery.min.js"></script>
+    <script src="../js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/Chart.js"></script>
-    <script src="js/saphv2.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/Chart.js"></script>
+    <script src="../js/saphv2.js"></script>
   </body>
 </html>

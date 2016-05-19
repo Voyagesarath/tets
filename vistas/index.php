@@ -3,10 +3,10 @@
 <head>
 
 	<meta charset="utf-8">
-	<link rel="shortcut icon" href="images/favicon.ico">
-		<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-		<link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.css">
-		<link rel="stylesheet" type="text/css" href="css/estilos.css">
+	<link rel="shortcut icon" href="../images/favicon.ico">
+		<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="../bootstrap/css/bootstrap-responsive.css">
+		<link rel="stylesheet" type="text/css" href="../css/estilos.css">
 	<title>Oficina editorial - ITH -</title>
 </head>
 <style type="text/css">
@@ -23,7 +23,7 @@ body,td,th {
 
 <body>
 <header>
-  <img src="header-ith.png">
+  <img src="../images/header-ith.png">
 
 </header>
 <p>&nbsp;</p>
@@ -40,7 +40,7 @@ body,td,th {
 	<table border="0" align="center" valign="middle">
 		<tr>
 		<td rowspan=2>
-		<form action="validar.php" method="post">
+		<form action="../php/validar.php" method="post">
 
 		<table border="0">
 

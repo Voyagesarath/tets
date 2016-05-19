@@ -29,15 +29,15 @@ $fecha = date('Y-m-d');
 //include("connect_db2.php");
 $con=mysql_connect($host,$user,$pass) or die ("Problemas al conectar");
 mysql_select_db($baseDatos,$con)or die(mysql_error());
-$departamento = $_POST["Nom_Departamento"];
-$departamento1 = mysqli_query($con, "SELECT Nom_Departamento FROM departamento where Id_Departamento = $departamento");
+//$departamento = $_POST["Nom_Departamento"];
+//$departamento1 = mysqli_query($con, "SELECT Nom_Departamento FROM departamento where Id_Departamento = $departamento");
 
 //if (@$_POST['BtnGuardar']) {
-	mysql_query("INSERT INTO reg_serv_copiado (departamento, maestro, num_copias, clave, fecha) VALUES ('$departamento1','$_POST[maestro]','$_POST[num_copias]','$_POST[clave]','$fecha')", $con);
+	mysql_query("INSERT INTO reg_serv_copiado (departamento, maestro, num_copias, clave, fecha) VALUES ('$_POST[Nom_Departamento]','$_POST[maestro]','$_POST[num_copias]','$_POST[clave]','$fecha')", $con);
 	//echo "datos insertados correctamente";
 	echo '<script>alert("Datos Guardados Con Exito")</script> ';
 		
-		echo "<script>location.href='servicio-copiado.php'</script>";
+		echo "<script>location.href='../vistas/servicio-copiado.php'</script>";
 //}
 
 //$_POST[Nom_Departamento]

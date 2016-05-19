@@ -2,7 +2,7 @@
 <?php
 session_start();
 if (@!$_SESSION['user']) {
-    header("Location:../index.php");
+    header("Location:index.php");
 }
 ?>
 <head>
@@ -21,7 +21,7 @@ if (@!$_SESSION['user']) {
 </head>
 
 <header>
-  <img src="../header-ith.png">
+  <img src="../images/header-ith.png">
 
 </header>
 <p>&nbsp;</p>
@@ -37,7 +37,7 @@ if (@!$_SESSION['user']) {
     <div class="container">
       <div class="nav-collapse">
         <ul class="nav">
-            <li class=""><a href="../principal.php">Principal</a></li>
+            <li class=""><a href="principal.php">Principal</a></li>
              
     
         </ul>
@@ -69,9 +69,7 @@ if (@!$_SESSION['user']) {
     </section>
 
     <div class="registros" id="agrega-registros"></div>
-    <center>
-        <ul class="pagination" id="pagination"></ul>
-    </center>
+
     
       
 

@@ -11,14 +11,14 @@ if (@!$_SESSION['user']) {
     <title>Editorial ITH</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <link rel="stylesheet" type="text/css" href="css/estilos.css">
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../css/estilos.css">
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
   </head>
   <style type="text/css">
 body {
@@ -31,7 +31,7 @@ body,td,th {
 
 </style>
 <header>
-  <img src="header-ith.png">
+  <img src="../images/header-ith.png">
 
 </header>
 <p>&nbsp;</p>
@@ -65,7 +65,7 @@ body,td,th {
 		</form>
 		<ul class="nav pull-right">
 		<li><a href="">Bienvenido <strong><?php echo $_SESSION['user'];?></strong> </a></li>
-			  <li><a href="desconectar.php"> Cerrar Cesión </a></li>			 
+			  <li><a href="../php/desconectar.php"> Cerrar Cesión </a></li>			 
 		</ul>
 	  </div><!-- /.nav-collapse -->
 	</div>
@@ -76,11 +76,11 @@ body,td,th {
 				<h2 style="color: #605C5C"; align="center">Menú</h2>
 				   
 				   <table align="center" border="0" style="width:80%">
-				   <tr><td><img src="images/usuarios.png"><form align:"left"></form><a href="usuarios.php">Personal</a></td>
-				   <td><img src="images/copiado.png"><form align:"center"></form><a href="servicio-copiado.php">Servicio de Copiado</a></td>
-				   <td><img src="images/dep.png"><form align:"center"></form><a href="departamento.php">Departamentos</a></td>
-				   <td><img src="images/reportes.png"><form align:"center"></form><a href="vistas/crea-reportes.php">Reportes</a></td>
-				   <td><img src="images/arroba.png"><form align:"center"></form><a href="https://www.gmail.com">Correo electronico</a></td>
+				   <tr><td><img src="../images/usuarios.png"><form align:"left"></form><a href="usuarios.php">Personal</a></td>
+				   <td><img src="../images/copiado.png"><form align:"center"></form><a href="servicio-copiado.php">Servicio de Copiado</a></td>
+				   <td><img src="../images/dep.png"><form align:"center"></form><a href="departamento.php">Departamentos</a></td>
+				   <td><img src="../images/reportes.png"><form align:"center"></form><a href="crea-reportes.php">Reportes</a></td>
+				   <td><img src="../images/arroba.png"><form align:"center"></form><a href="https://www.gmail.com" target="_blank">Correo electronico</a></td>
 				     </tr>
 				   </table> 
 		
@@ -114,8 +114,8 @@ body,td,th {
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="bootstrap/js/jquery-1.8.3.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="../bootstrap/js/jquery-1.8.3.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
 	</style>
   </body>
 </html>

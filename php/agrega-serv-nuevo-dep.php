@@ -12,7 +12,7 @@ mysql_select_db($baseDatos,$con)or die(mysql_error());
 
 	echo '<script>alert("Datos Guardados Con Exito")</script> ';
 		
-		echo "<script>location.href='servicio-copiado.php'</script>";
+		echo "<script>location.href='../vistas/servicio-copiado.php'</script>";
 
 
 
