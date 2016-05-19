@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <?php
 session_start();
-if (@!$_SESSION['user']) {
+if (isset($_SESSION['user'])) {
+	$tipo = $_SESSION['user'];
+} else{
 	header("Location:index.php");
 }
+
 ?>
 <html lang="en">
   <head>
@@ -12,156 +15,92 @@ if (@!$_SESSION['user']) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
 
+    <!-- Bootstrap -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <link href="saphv2.css" rel="stylesheet">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 
     <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
-  </head>
-  <style type="text/css">
-body {
-	background-color: ##F2F2F2;
-	
-}
-body,td,th {
-	color: ##000000;
-}
-
-</style>
-<header>
-  <img src="header-ith.png">
-
-</header>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<table width="100%" border="0">
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-<div class="container">
+    </head>
 <header class="header">
+  <div class="container">
+  <img src="header-ith.png">
 <div class="row">
 </div>
 </header>
-
-  <!-- Navbar
-    ================================================== -->
-
-<div class="navbar">
-  <div class="navbar-inner">
-	<div class="container">
-	  <div class="nav-collapse">
-		<ul class="nav">
-			<li class=""><a href="admin.php">ADMINISTRADOR DEL SITIO</a></li>
+<body>
+	<!-- top menu -->
+<nav id="top-menu" class="navbar navbar-default">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+     <a class="navbar-brand" href="admin.php">Panel administrativo</a>
+     <a class="navbar-brand" href="principal.php">Panel operativo</a>
+    </div>
 			 
-	
-		</ul>
-		<form action="#" class="navbar-search form-inline" style="margin-top:6px">
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <form action="#" class="navbar-search form-inline" style="margin-top:6px">
 		
 		</form>
-		<ul class="nav pull-right">
-		<li><a href="">Bienvenido <strong><?php echo $_SESSION['user'];?></strong> </a></li>
-			  <li><a href="desconectar.php"> Cerrar Cesión </a></li>			 
-		</ul>
-	  </div><!-- /.nav-collapse -->
-	</div>
-  </div><!-- /navbar-inner -->
+    	   	<ul class="nav pull-right">
+    		<li><a href="">Bienvenido <strong><?php echo $_SESSION['user'];?></strong> </a></li>
+        	<li><a href="desconectar.php"> Cerrar Cesión </a></li>       
+    </ul>
+          
+  </div><!-- /.container-fluid -->
+</nav>
+<!-- /top memu -->
+
+<!-- body -->
+<div class="container">
+<div class="row">
+    
+   <!-- sidebar -->
+   <div class="col-md-3">
+     <!-- panel -->
+        <div class="panel panel-default">
+         <div class="panel-heading">
+            <i class="fa fa-bars"></i> Menu
+            <i class="showmenu fa fa-angle-down pull-right"></i>
+         </div>
+          <div id="sider-menu" class="panel-body">
+             <!-- links -->
+                 <a href="admin.php"><i class="fa fa-home"></i> Inicio</a>
+                 <a href="charts.php"><i class="fa fa-area-chart"></i> Datos Estadisticos</a>
+                 <a href="users.php"><i class="fa fa-users"></i> Usuarios</a>
+             <!-- /links -->
+          </div>
+        </div>
+     <!-- /panel -->
+   </div>
+   <!-- /sidebar -->
+
+   <!-- controls -->
+   <div class="col-md-9">
+    <!-- panel -->
+        <div class="panel panel-default">
+         <div class="panel-heading"><i class="fa fa-desktop"></i> Dashboard</div>
+          <div class="panel-body">
+            
+<img src="images/dashboard.jpg">
+
+
+
+          </div>
+        </div>
+     <!-- /panel -->
+   </div>
+   <!-- controls -->
+
 </div>
-<!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
-		<h2> Administración de usuarios registrados</h2>	
-		<div class="well well-small">
-		<hr class="soft"/>
-		<h4>Tabla de Usuarios</h4>
-		<div class="row-fluid">
-		
-			<?php
-
-				require("connect_db.php");
-				$sql=("SELECT * FROM login");
-				$query=mysql_query($sql);
-
-				echo "<table border='1'; class='table table-hover';>";
-					echo "<tr class='warning'>";
-						echo "<td>Id</td>";
-						echo "<td>Usaurio</td>";
-						echo "<td>Password</td>";
-						echo "<td>Correo</td>";
-						echo "<td>Password del administrador</td>";
-						echo "<td>Editar</td>";
-						echo "<td>Borrar</td>";
-					echo "</tr>";
-
-			    
-			?>
-			  
-			<?php 
-				 while($arreglo=mysql_fetch_array($query)){
-				  	echo "<tr class='success'>";
-				    	echo "<td>$arreglo[0]</td>";
-				    	echo "<td>$arreglo[1]</td>";
-				    	echo "<td>$arreglo[2]</td>";
-				    	echo "<td>$arreglo[3]</td>";
-				    	echo "<td>$arreglo[4]</td>";
-
-				    	echo "<td><a href='actualizar.php?id=$arreglo[0]'><img src='images/actualizar.gif' class='img-rounded'></td>";
-						echo "<td><a href='admin.php?id=$arreglo[0]&idborrar=2'><img src='images/eliminar.png' class='img-rounded'/></a></td>";
-						
-
-						
-					echo "</tr>";
-				}
-
-				echo "</table>";
-
-					extract($_GET);
-					if(@$idborrar==2){
-		
-						$sqlborrar="DELETE FROM login WHERE id=$id";
-						$resborrar=mysql_query($sqlborrar);
-						echo '<script>alert("REGISTRO ELIMINADO")</script> ';
-						//header('Location: proyectos.php');
-						echo "<script>location.href='admin.php'</script>";
-					}
-
-			?>
-			
-				  
-			  			  
-			  
-		
-		
-		<div class="span8">
-		
-		</div>	
-		</div>	
-		<br/>
-		
-
-
-		<!--EMPIEZA DESLIZABLE-->
-		
-		 <!--TERMINA DESLIZABLE-->
-
-
-
-		
-		
-		</div>
-
-		
-
-
-		
-
-<!--///////////////////////////////////////////////////Termina cuerpo del documento interno////////////////////////////////////////////-->
 </div>
+<!-- /body -->
 
-	</div>
-</div>
 <!-- Footer
       ================================================== -->
 <hr class="soften"/>
@@ -171,8 +110,11 @@ body,td,th {
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="bootstrap/js/jquery-1.8.3.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-	</style>
-  </body>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/Chart.js"></script>
+    <script src="js/stack-blur.js"></script>
+</body>
 </html>

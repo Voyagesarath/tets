@@ -76,13 +76,12 @@ body,td,th {
 				<h2 style="color: #605C5C"; align="center">Menú</h2>
 				   
 				   <table align="center" border="0" style="width:80%">
-				   <tr><td><img src="usuarios.png"><form align:"center"></form><a href="usuarios.php">Usuarios</a></td>
-				   <td><img src="copiado.png"><a href="servicio-copiado.php">Servicio de Copiado</a></td>
-				   <td><img src="dep.png"><form align:"center"></form><a href="departamento.php">Departamentos</a></td>
-				   <td><img src="reportes.png"><form align:"center"></form><a href="reportes.php">Reportes</a></td>
-				   <td><img src="cronologico.png"><form align:"center"></form><a href="servicio-copiado.php">Estimaciones Cronologicas</a></td>
-				   <td><img src="mprima.png"><form align:"center"></form><a href="mprima.php">Solicitud de Materia Prima</a></td>
-				   </tr>
+				   <tr><td><img src="images/usuarios.png"><form align:"left"></form><a href="usuarios.php">Personal</a></td>
+				   <td><img src="images/copiado.png"><form align:"center"></form><a href="servicio-copiado.php">Servicio de Copiado</a></td>
+				   <td><img src="images/dep.png"><form align:"center"></form><a href="departamento.php">Departamentos</a></td>
+				   <td><img src="images/reportes.png"><form align:"center"></form><a href="vistas/crea-reportes.php">Reportes</a></td>
+				   <td><img src="images/arroba.png"><form align:"center"></form><a href="https://www.gmail.com">Correo electronico</a></td>
+				     </tr>
 				   </table> 
 		
 

@@ -8,8 +8,8 @@ session_start();
 	$sql2=mysql_query("SELECT * FROM login WHERE email='$username'");
 	if($f2=mysql_fetch_array($sql2)){
 		if($pass==$f2['pasadmin']){
-			$_SESSION['id']=$f2['id'];
-			$_SESSION['user']=$f2['user'];
+			$_SESSION['id']=$idUsuario['id'];
+			$_SESSION['user']=$tipo['user'];
 			echo '<script>alert("BIENVENIDO ADMINISTRADOR")</script> ';
 			echo "<script>location.href='admin.php'</script>";
 		
@@ -20,8 +20,8 @@ session_start();
 	$sql=mysql_query("SELECT * FROM login WHERE email='$username'");
 	if($f=mysql_fetch_array($sql)){
 		if($pass==$f['password']){
-			$_SESSION['id']=$f['id'];
-			$_SESSION['user']=$f['user'];
+			$_SESSION['id']=$idUsuario['id'];
+			$_SESSION['user']=$tipo['user'];
 			header("Location: principal.php");
 		}else{
 			echo '<script>alert("CONTRASEÑA INCORRECTA")</script> ';

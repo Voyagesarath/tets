@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-		<?php
-session_start();
+
+<?php
+		session_start();
 if (@!$_SESSION['user']) {
-	header("Location:index2.php");
+	header("Location:index.php");
+}else {
+
+include("connect_db.php");
 }
 ?>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -19,6 +24,19 @@ if (@!$_SESSION['user']) {
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript">
+            $("document").ready(function(){
+                $("#Departamento").load("departamentos.php");
+                $("#Departamento").change(function(){
+                	var id = $("#Departamento").val();
+                	$.get("coordinadores.php",{param_id:id})
+                	.done(function(data){
+                		$("#coordinador").html(data);
+                	})
+                	}) 
+            })
+    </script>
   </head>
   <style type="text/css">
 body {
@@ -91,30 +109,29 @@ body,td,th {
 		<div class="row-fluid">
 		
 
-		<form action="ejecutaactualizar.php" method="post">
+		<form action="agrega-serv-nuevo-dep.php" method="post">
 		<p align="center">
-			<b style="color: #837E7E">Departamento</b><br><select style="border-radius:15px;" type="text" name="depart" required>
-			   <option value="sistemas">Sistemas e Informatica</option>
-			   <option value="ciencias">Electrica-Electronica</option>
-			   <option value="electronica">Metal-Mecanica</option>
-			   <option value="admin" selected>Econ-Admin</option>
+			<b style="color: #837E7E">Departamento</b><br>
+			<select id="Departamento" style="border-radius:15px;" type="text" name="Nom_Departamento" required>
+			   
+			</select><br>
+
+			<b style="color: #837E7E">Coordinador</b><br> 
+			<select id="coordinador" style="border-radius:15px;" type="text" name="coordinador" required>
+				
+
+			</select><br>
+
+			<b style="color: #837E7E">Numero de Copias</b><br> <input type="number" min="0" max="100000" style="border-radius:15px;" type="text" name="num_copias" required><br>
 </select><br>
-			<b style="color: #837E7E">Coordinador</b><br> <select style="border-radius:15px;" type="text" name="depart" required>
-			   <option value="sistemas">Jorge David Gutierrez Cota</option>
-			   <option value="ciencias">Ruben Dario Soto Patron</option>
-			   <option value="electronica"></option>
-			   <option value="admin" selected></option>
-</select><br>
-			<b style="color: #837E7E">Numero de Copias</b><br> <input style="border-radius:15px;" type="text" name="copys" required><br>
-</select><br>
-			<b style="color: #837E7E">Clave</b><br> <select style="border-radius:15px;" type="text" name="depart" required>
-			   <option value="Examenes">001</option>
-			   <option value="Recursos">002</option>
-			   <option value="Evento departamental">ESP001</option>
-			   <option value="Evento Administrativo" selected>ESP002</option>
+			<b style="color: #837E7E">Clave</b><br> <select style="border-radius:15px;" type="text" name="clave" required>
+			   <option value="Examenes">001 Examenes</option>
+			   <option value="Recursos">002 Recursos</option>
+			   <option value="Evento departamental">ESP001 Evento departamental</option>
+			   <option value="Evento Administrativo">ESP002 Evento Administrativo</option>
 </select><br>
 		</p>
-				<input class="btn btn-primary" value="Guardar">
+				<input type="submit" name="BtnGuardar" value="Guardar"/>
 			</form>
 
 				 
