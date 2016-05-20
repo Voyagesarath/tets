@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-		<?php
+<?php
 session_start();
 if (@!$_SESSION['user']) {
 	header("Location:../index.php");
 }
-?>
+?>		
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Editorial ITH</title>
+    <title>Oficina Editorial - ITH -</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <link rel="stylesheet" type="text/css" href="../css/estilos.css">
@@ -26,7 +26,7 @@ body {
 	
 }
 body,td,th {
-	color: ##000000;
+	color: #00000;
 }
 
 </style>
@@ -40,13 +40,12 @@ body,td,th {
 <table width="100%" border="0">
   <tr>
     <td>&nbsp;</td>
-    <!--<td width="96%" align="center"><img src="editorial.png" width="820" height="100" /></td>-->
     <td>&nbsp;</td>
   </tr>
 <div class="container">
 <header class="header">
 <div class="row">
-	</div>
+</div>
 </header>
 
   <!-- Navbar
@@ -84,64 +83,39 @@ body,td,th {
 		<div class="caption">
 		
 <!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
-		<h2> Administración de usuarios registrados</h2>	
+		<h2> Administración de Personal Registrado</h2>	
 		<div class="well well-small">
 		<hr class="soft"/>
-		<h4>Tabla de Usuarios</h4>
+		<h4>Edición de Personal</h4>
 		<div class="row-fluid">
 		
-			<?php
+		<?php
+		extract($_GET);
+		require("../php/connect_db.php");
 
-				require("../php/connect_db.php");
-				$sql=("SELECT * FROM personal");
-				$query=mysql_query($sql);
+		$sql="SELECT * FROM personal WHERE id_personal=$id";
+		$ressql=mysql_query($sql);
+		while ($row=mysql_fetch_row ($ressql)){
+		    	$id=$row[0];
+		    	$Nombre=$row[1];
+		    	$Departamento=$row[2];
+		    	$email=$row[3];
+		    }
 
-				echo "<table border='1'; class='table table-hover';>";
-					echo "<tr class='warning'>";
-						echo "<td>Id</td>";
-						echo "<td>nombre</td>";
-						echo "<td>departamento</td>";
-						echo "<td>Correo</td>";
-						echo "<td>Editar</td>";
-						echo "<td>Borrar</td>";
-					echo "</tr>";
 
-			    
-			?>
-			  
-			<?php 
-				 while($arreglo=mysql_fetch_array($query)){
-				  	echo "<tr class='success'>";
-				    	echo "<td>$arreglo[0]</td>";
-				    	echo "<td>$arreglo[1]</td>";
-				    	echo "<td>$arreglo[2]</td>";
-				    	echo "<td>$arreglo[3]</td>";
 
-				    	echo "<td><a href='actualizarpersonal.php?id=$arreglo[0]'><img src='../images/actualizar.gif' class='img-rounded'></td>";
-						echo "<td><a href='admin.php?id=$arreglo[0]&idborrar=2'><img src='../images/eliminar.png' class='img-rounded'/></a></td>";
-						
+		?>
 
-						
-					echo "</tr>";
-				}
+		<form name="form1" action="../php/ejecuta-actualizar-personal.php" method="post">
+				Id<br><input type="text" name="id" value= "<?php echo $id ?>" readonly="readonly"><br>
+				Nombre<br> <input type="text" name="nombre" value="<?php echo $Nombre?>"><br>
+				Departamento<br> <input type="text" name="departamento" value="<?php echo $Departamento?>"><br>
+				Correo Electronico<br> <input type="email" name="email" value="<?php echo $email?>"><br>
+				<br>
+				<input type="submit" name="Guardar" value="Guardar" class="btn btn-success btn-primary">
+		</form>
 
-				echo "</table>";
-
-					extract($_GET);
-					if(@$idborrar==2){
-		
-						$sqlborrar="DELETE FROM login WHERE id=$id";
-						$resborrar=mysql_query($sqlborrar);
-						echo '<script>alert("REGISTRO ELIMINADO")</script> ';
-						//header('Location: proyectos.php');
-						echo "<script>location.href='admin.php'</script>";
-					}
-
-			?>
-			
 				  
-			  			  
-			  
 		
 		
 		<div class="span8">
@@ -181,8 +155,8 @@ body,td,th {
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="bootstrap/js/jquery-1.8.3.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="../bootstrap/js/jquery-1.8.3.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
 	</style>
   </body>
 </html>
