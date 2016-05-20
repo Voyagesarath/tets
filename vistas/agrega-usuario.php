@@ -1,10 +1,12 @@
 <!DOCTYPE html>
+
 <?php
 session_start();
 if (@!$_SESSION['user']) {
 	header("Location:../index.php");
 }
-?>		
+?>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -19,6 +21,25 @@ if (@!$_SESSION['user']) {
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+    <script>
+		function habilitar(value)
+		{
+			if(value=="1")
+			{
+				// habilitamos
+				document.getElementById("user").disabled=false;
+				document.getElementById("email").disabled=false;
+				document.getElementById("pass").disabled=false;
+				document.getElementById("pasadmin").disabled=true;
+			}else if(value=="2"){
+				// deshabilitamos
+				document.getElementById("user").disabled=false;
+				document.getElementById("email").disabled=false;
+				document.getElementById("pass").disabled=true;
+				document.getElementById("pasadmin").disabled=false;
+			}
+		}
+	</script>
   </head>
   <style type="text/css">
 body {
@@ -83,37 +104,27 @@ body,td,th {
 		<div class="caption">
 		
 <!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
-		<h2> Administración de usuarios registrados</h2>	
+		<h2> Administración de usuarios nuevos</h2>	
 		<div class="well well-small">
 		<hr class="soft"/>
-		<h4>Edición de usuarios</h4>
+		<h4>Agrega usuarios nuevos</h4>
 		<div class="row-fluid">
 		
-		<?php
-		extract($_GET);
-		require("../php/connect_db.php");
-
-		$sql="SELECT * FROM login WHERE id=$id";
-		$ressql=mysql_query($sql);
-		while ($row=mysql_fetch_row ($ressql)){
-		    	$id=$row[0];
-		    	$user=$row[1];
-		    	$pass=$row[2];
-		    	$email=$row[3];
-		    	$pasadmin=$row[4];
-		    }
 
 
-
-		?>
-
-		<form action="../php/ejecutaactualizar.php" method="post">
-				Id<br><input type="text" name="id" value= "<?php echo $id ?>" readonly="readonly"><br>
-				Nombre<br> <input type="text" name="user" value="<?php echo $user?>"><br>
-				Password Usuario<br> <input type="password" name="pass" value="<?php echo $pass?>"><br>
-				Usuario<br> <input type="text" name="email" value="<?php echo $email?>"><br>
-				Password administrador<br> <input type="password" name="pasadmin" value="<?php echo $pasadmin?>"><br>
-				
+		<form action="../php/agrega-nuevo-usuario.php" method="post">
+		        <div align="center">
+		            <input type="radio" value="1" name="habilitarDeshabilitar" onchange="habilitar(this.value);"> Usuario Normal &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		            <input type="radio" value="2" name="habilitarDeshabilitar" onchange="habilitar(this.value);"> Usuario Administrador
+		        </div>
+		        <br>
+		        <div align="center">
+				    Nombre<br> <input type="text" id="user" name="user" required=""><br>
+				    Usuario<br> <input type="text" id="email" name="email"  required=""><br>
+				    Password usuario<br> <input type="password" id="pass" name="pass"><br>
+				    Pssword administrador<br> <input type="password" id="pasadmin" name="pasadmin"><br>
+				</div>
+				<br>
 				<br>
 				<input type="submit" value="Guardar" class="btn btn-success btn-primary">
 			</form>
@@ -152,7 +163,7 @@ body,td,th {
 <!-- Footer
       ================================================== -->
 <hr class="soften"/>
-<
+
 </div><!-- /container -->
 
     <!-- Le javascript
@@ -163,5 +174,3 @@ body,td,th {
 	</style>
   </body>
 </html>
-
-

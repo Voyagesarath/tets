@@ -101,9 +101,9 @@ if (@!$_SESSION['user']) {
         echo "<table border='1'; class='table table-hover';>";
           echo "<tr class='warning'>";
             echo "<td>Id</td>";
-            echo "<td>Usaurio</td>";
+            echo "<td>Nombre de Usuario</td>";
             echo "<td>Password</td>";
-            echo "<td>Correo</td>";
+            echo "<td>Usuario</td>";
             echo "<td>Password del administrador</td>";
             echo "<td>Editar</td>";
             echo "<td>Borrar</td>";
@@ -142,8 +142,11 @@ if (@!$_SESSION['user']) {
           }
 
       ?>
-
-           
+      <section align="right">
+        <form name="agrega-usuario" action="agrega-usuario.php" method="post">
+          <input type="submit" name="AgregaUsuario" value="Agrega un usuario nuevo"/>
+        </form>
+      </section>
 
           </div>
         </div>
