@@ -119,10 +119,10 @@ body,td,th {
 		        </div>
 		        <br>
 		        <div align="center">
-				    Nombre<br> <input type="text" id="user" name="user" required=""><br>
-				    Usuario<br> <input type="text" id="email" name="email"  required=""><br>
-				    Password usuario<br> <input type="password" id="pass" name="pass"><br>
-				    Pssword administrador<br> <input type="password" id="pasadmin" name="pasadmin"><br>
+				    Nombre<br> <input type="text" id="user" name="user" required="" disabled><br>
+				    Usuario<br> <input type="text" id="email" name="email"  required="" disabled><br>
+				    Password usuario<br> <input type="password" id="pass" name="pass" disabled><br>
+				    Pssword administrador<br> <input type="password" id="pasadmin" name="pasadmin" disabled><br>
 				</div>
 				<br>
 				<br>
