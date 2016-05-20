@@ -141,6 +141,7 @@ if (@!$_SESSION['user']) {
             echo "<script>location.href='admin.php'</script>";
           }
 
+
       ?>
       <section align="right">
         <form name="agrega-usuario" action="agrega-usuario.php" method="post">

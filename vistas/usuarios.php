@@ -93,17 +93,15 @@ body,td,th {
 			<?php
 
 				require("../php/connect_db.php");
-				$sql=("SELECT * FROM user");
+				$sql=("SELECT * FROM personal");
 				$query=mysql_query($sql);
 
 				echo "<table border='1'; class='table table-hover';>";
 					echo "<tr class='warning'>";
 						echo "<td>Id</td>";
 						echo "<td>nombre</td>";
-						echo "<td>apaterno</td>";
-						echo "<td>amaterno</td>";
 						echo "<td>departamento</td>";
-						echo "<td>coordinador</td>";
+						echo "<td>Correo</td>";
 						echo "<td>Editar</td>";
 						echo "<td>Borrar</td>";
 					echo "</tr>";
@@ -118,8 +116,6 @@ body,td,th {
 				    	echo "<td>$arreglo[1]</td>";
 				    	echo "<td>$arreglo[2]</td>";
 				    	echo "<td>$arreglo[3]</td>";
-				    	echo "<td>$arreglo[4]</td>";
-				    	echo "<td>$arreglo[5]</td>";
 
 				    	echo "<td><a href='../php/actualizar.php?id=$arreglo[0]'><img src='../images/actualizar.gif' class='img-rounded'></td>";
 						echo "<td><a href='admin.php?id=$arreglo[0]&idborrar=2'><img src='../images/eliminar.png' class='img-rounded'/></a></td>";

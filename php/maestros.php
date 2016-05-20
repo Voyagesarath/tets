@@ -9,10 +9,10 @@ $bd="academ";
 
 $con=mysqli_connect($host,$user,$pass,$bd);
 
-$result = mysqli_query($con, "SELECT * FROM maestros WHERE Id_Departamento = $id_depa order by Nom_Maestro ASC");
+$result = mysqli_query($con, "SELECT * FROM personal WHERE ID_Departamento = $id_depa order by Nom_Personal ASC");
 
 while ($row = mysqli_fetch_array($result)){
-	echo '<option value="'.$row['Nom_Maestro'].'">'.$row['Nom_Maestro'].'</option>';
+	echo '<option value="'.$row['Nom_Personal'].'">'.$row['Nom_Personal'].'</option>';
 }
 
 ?>
