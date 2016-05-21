@@ -89,6 +89,12 @@ body,td,th {
 		<hr class="soft"/>
 		<h4>Tabla de Usuarios</h4>
 		<div class="row-fluid">
+
+      <section align="right">
+        <form name="agrega-usuario" action="agrega-personal.php" method="post">
+          <input type="submit" name="AgregaPersonal" value="Agrega Una Nueva Persona"/>
+        </form>
+      </section>
 		
 			<?php
 
