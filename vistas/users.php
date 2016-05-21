@@ -122,8 +122,7 @@ if (@!$_SESSION['user']) {
               echo "<td>$arreglo[4]</td>";
 
               echo "<td><a href='actualizar.php?id=$arreglo[0]'><img src='../images/actualizar.gif' class='img-rounded'></td>";
-            echo "<td><a href='admin.php?id=$arreglo[0]&idborrar=2'><img src='../images/eliminar.png' class='img-rounded'/></a></td>";
-            
+            echo "<td><a href='users.php?id=$arreglo[0]&idborrar=2'><img src='../images/eliminar.png' class='img-rounded'/></a></td>";
 
             
           echo "</tr>";
@@ -138,7 +137,7 @@ if (@!$_SESSION['user']) {
             $resborrar=mysql_query($sqlborrar);
             echo '<script>alert("REGISTRO ELIMINADO")</script> ';
             //header('Location: proyectos.php');
-            echo "<script>location.href='admin.php'</script>";
+            echo "<script>location.href='users.php'</script>";
           }
 
 
