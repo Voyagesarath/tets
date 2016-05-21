@@ -1,16 +1,24 @@
 <?php
 
 
-extract($_POST);	//extraer todos los valores del metodo post del formulario de actualizar
+//extract($_POST);	//extraer todos los valores del metodo post del formulario de actualizar
+
 	require("connect_db.php");
-	$sentencia="UPDATE personal SET Nom_Personal='$_POST[nombre]', Nom_Departamento='$_POST[departamento]', Correo_Electronico=$_POST[email], where id_personal='$id'";
-	$resent=mysql_query($sentencia);
-	if ($resent==null) {
-		echo "Error de procesamieno no se han actuaizado los datos";
+
+	$id = $_POST['id'];
+	$Nombre = $_POST['Nombre'];
+	$Departamento = $_POST['Departamento'];
+	$correo = $_POST['email'];
+
+
+	$sentencia=mysql_query("UPDATE personal SET Nom_Personal='$Nombre', Nom_Departamento='$Departamento', Correo_Electronico= '$correo' where id_personal='$id'", $conexion) or die (mysql_error());
+	//$resent=mysql_query($sentencia);
+	if ($sentencia==null) {
+		//echo "Error de procesamieno no se han actuaizado los datos";
 		echo '<script>alert("ERROR EN PROCESAMIENTO NO SE ACTUALIZARON LOS DATOS")</script> ';
 		header("location: ../vistas/usuarios.php");
 		
-		echo "<script>location.href='../vistas/usuarios.php'</script>";
+		//echo "<script>location.href='../vistas/admin.php'</script>";
 	}else {
 		echo '<script>alert("REGISTRO ACTUALIZADO")</script> ';
 		

@@ -3,7 +3,7 @@ $(function(){
 	$('#bd-desde').on('change', function(){
 		var desde = $('#bd-desde').val();
 		var hasta = $('#bd-hasta').val();
-		var url = '../php/busca_producto_fecha.php';
+		var url = '../php/busca_servicio_fecha.php';
 		$.ajax({
 		type:'POST',
 		url:url,
@@ -18,7 +18,7 @@ $(function(){
 	$('#bd-hasta').on('change', function(){
 		var desde = $('#bd-desde').val();
 		var hasta = $('#bd-hasta').val();
-		var url = '../php/busca_producto_fecha.php';
+		var url = '../php/busca_servicio_fecha.php';
 		$.ajax({
 		type:'POST',
 		url:url,
@@ -43,7 +43,7 @@ $(function(){
 	
 	$('#bs-prod').on('keyup',function(){
 		var dato = $('#bs-prod').val();
-		var url = '../php/busca_producto.php';
+		var url = '../php/busca-personal.php';
 		$.ajax({
 		type:'POST',
 		url:url,
@@ -58,7 +58,7 @@ $(function(){
 });
 
 function agregaRegistro(){
-	var url = '../php/agrega_producto.php';
+	var url = '../php/agrega-personal.php';
 	$.ajax({
 		type:'POST',
 		url:url,
@@ -80,7 +80,7 @@ function agregaRegistro(){
 }
 
 function eliminarProducto(id){
-	var url = '../php/elimina_producto.php';
+	var url = '../php/elimina-personal.php';
 	var pregunta = confirm('¿Esta seguro de eliminar este Producto?');
 	if(pregunta==true){
 		$.ajax({
@@ -100,7 +100,7 @@ function eliminarProducto(id){
 
 function editarProducto(id){
 	$('#formulario')[0].reset();
-	var url = '../php/edita_producto.php';
+	var url = '../php/edita-personal.php';
 		$.ajax({
 		type:'POST',
 		url:url,
@@ -110,11 +110,11 @@ function editarProducto(id){
 				$('#reg').hide();
 				$('#edi').show();
 				$('#pro').val('Edicion');
-				$('#id-prod').val(id);
-				$('#nombre').val(datos[0]);
-				$('#tipo').val(datos[1]);
-				$('#precio-uni').val(datos[2]);
-				$('#precio-dis').val(datos[3]);
+				$('#id_personal').val(id);
+				$('#nocontrol').val(datos[0]);
+				$('#nombre').val(datos[1]);
+				$('#Nom_Departamento').val(datos[2]);
+				$('#email').val(datos[3]);
 				$('#registra-producto').modal({
 					show:true,
 					backdrop:'static'

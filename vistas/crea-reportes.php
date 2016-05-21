@@ -12,10 +12,16 @@ if (@!$_SESSION['user']) {
 <meta name="description" content="">
 <link rel="shortcut icon" href="../images/favicon.ico">
 <link rel="stylesheet" type="text/css" href="../css/estilos.css">
-<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="../bootstrap/css/bootstrap2.min.css" rel="stylesheet"/>
+<link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+
+<link href="../bootstrap/css/bootstrap-theme2.css" rel="stylesheet">
+<link href="../bootstrap/css/bootstrap-theme2.min.css" rel="stylesheet">
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script src="../bootstrap/js/bootstrap.js"></script>
 <script src="../js/jquery.js"></script>
 <script src="../js/myjava.js"></script>
-<link href="../bootstrap/css/bootstrap2.css" rel="stylesheet">
+
 <!--<script src="../bootstrap/js/bootstrap2.min.js"></script>-->
 
 </head>

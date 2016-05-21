@@ -99,8 +99,8 @@ body,td,th {
 		        </div>
 		        <br>
 		        <div align="center">
-				    No Control<br> <input type="text" id="id" name="id" required=""><br>
-				    Nombre<br> <input type="text" id="nombre" name="nombre"  required=""><br>
+				    No Control<br> <input type="number" min="0" max="100000" id="id" name="id" required><br>
+				    Nombre (Apellidos a Nombre)<br> <input type="text" id="nombre" name="nombre"  required=""><br>
 				    Departamento<br> 
 				    <select id=Departamento name="Nom_Departamento" required>
 				    	<option value="BIOMEDICA">BIOMEDICA</option>
@@ -128,7 +128,7 @@ body,td,th {
 				    	<option value="SISTEMAS Y COMPUTACION">SISTEMAS Y COMPUTACION</option>
 				    	<option value="SUBDIRECCION ACADEMICA">SUBDIRECCION ACADEMICA</option>
 				    </select><br>
-				    Correo Electronico<br> <input type="email" id="email" name="email"><br>
+				    
 				    Confirma el Departamento<br>
 				<select id=idDepartamento name="ID_Departamento"  required>
 				    	<option value="1">BIOMEDICA</option>
@@ -156,6 +156,7 @@ body,td,th {
 				    	<option value="23">SISTEMAS Y COMPUTACION</option>
 				    	<option value="24">SUBDIRECCION ACADEMICA</option>
 				    </select><br>
+				    Correo Electronico<br> <input type="email" id="email" name="email"><br>
 				<br>
 				<br>
 				<input type="submit" value="Guardar" class="btn btn-success btn-primary">

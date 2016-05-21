@@ -7,18 +7,21 @@ if (@!$_SESSION['user']) {
 ?>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>Editorial ITH</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <link rel="stylesheet" type="text/css" href="../css/estilos.css">
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Editorial ITH</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<link rel="shortcut icon" href="../images/favicon.ico">
+<link rel="stylesheet" type="text/css" href="../css/estilos.css">
+<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="../bootstrap/css/bootstrap2.css" rel="stylesheet">
+<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="../bootstrap/css/bootstrap-theme2.css" rel="stylesheet">
+<link href="../bootstrap/css/bootstrap-theme2.min.css" rel="stylesheet">
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script src="../bootstrap/js/bootstrap.js"></script>
+<script src="../js/jquery.js"></script>
+<script src="../js/myjava.js"></script>
   </head>
   <style type="text/css">
 body {
@@ -90,61 +93,32 @@ body,td,th {
 		<h4>Tabla de Usuarios</h4>
 		<div class="row-fluid">
 
-      <section align="right">
-        <form name="agrega-usuario" action="agrega-personal.php" method="post">
-          <input type="submit" name="AgregaPersonal" value="Agrega Una Nueva Persona"/>
-        </form>
-      </section>
-		
-			<?php
 
-				require("../php/connect_db.php");
-				$sql=("SELECT * FROM personal");
-				$query=mysql_query($sql);
+      <section>
+    <table border="0" align="center">
+        <tr>
+    	    <td>Buscador de Personal</td>
+        </tr>
+    	<tr>
+        	<td><input type="text" placeholder="Busca por: Id, Nombre o Departamento" id="bs-prod"/>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        	<td width="100"> 
+        	    <form name="form1" action="agrega-personal.php" method="post">
+        		<input type="submit" value="Agrega Nuevo Personal" class="btn btn-primary"></input>       
+        	    </form>
+        	</td>
 
-				echo "<table border='1'; class='table table-hover';>";
-					echo "<tr class='warning'>";
-						echo "<td>Id</td>";
-						echo "<td>nombre</td>";
-						echo "<td>departamento</td>";
-						echo "<td>Correo</td>";
-						echo "<td>Editar</td>";
-						echo "<td>Borrar</td>";
-					echo "</tr>";
+                 <!--<input type="button" name="AgregaPersonal" value="Agrega Una Nueva Persona" href="agrega-personal.php"/>-->
+        </tr>
+    </table>
+    </section>
 
-			    
-			?>
-			  
-			<?php 
-				 while($arreglo=mysql_fetch_array($query)){
-				  	echo "<tr class='success'>";
-				    	echo "<td>$arreglo[0]</td>";
-				    	echo "<td>$arreglo[1]</td>";
-				    	echo "<td>$arreglo[2]</td>";
-				    	echo "<td>$arreglo[3]</td>";
+      <div class="registros" id="agrega-registros"></div>
+      <center>
+        <ul class="pagination" id="pagination"></ul>
+      </center>
 
-				    	echo "<td><a href='actualizarpersonal.php?id=$arreglo[0]'><img src='../images/actualizar.gif' class='img-rounded'></td>";
-						echo "<td><a href='admin.php?id=$arreglo[0]&idborrar=2'><img src='../images/eliminar.png' class='img-rounded'/></a></td>";
-						
 
-						
-					echo "</tr>";
-				}
-
-				echo "</table>";
-
-					extract($_GET);
-					if(@$idborrar==2){
-		
-						$sqlborrar="DELETE FROM login WHERE id=$id";
-						$resborrar=mysql_query($sqlborrar);
-						echo '<script>alert("REGISTRO ELIMINADO")</script> ';
-						//header('Location: proyectos.php');
-						echo "<script>location.href='admin.php'</script>";
-					}
-
-			?>
-			
+          
 				  
 			  			  
 			  

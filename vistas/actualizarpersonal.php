@@ -108,8 +108,8 @@ body,td,th {
 
 		<form name="form1" action="../php/ejecuta-actualizar-personal.php" method="post">
 				Id<br><input type="text" name="id" value= "<?php echo $id ?>" readonly="readonly"><br>
-				Nombre<br> <input type="text" name="nombre" value="<?php echo $Nombre?>"><br>
-				Departamento<br> <input type="text" name="departamento" value="<?php echo $Departamento?>"><br>
+				Nombre<br> <input type="text" name="Nombre" value="<?php echo $Nombre?>"><br>
+				Departamento<br> <input type="text" name="Departamento" value="<?php echo $Departamento?>"><br>
 				Correo Electronico<br> <input type="email" name="email" value="<?php echo $email?>"><br>
 				<br>
 				<input type="submit" name="Guardar" value="Guardar" class="btn btn-success btn-primary">
