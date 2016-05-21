@@ -110,9 +110,9 @@ body,td,th {
 		<form action="../php/ejecutaactualizar.php" method="post">
 				Id<br><input type="text" name="id" value= "<?php echo $id ?>" readonly="readonly"><br>
 				Nombre<br> <input type="text" name="user" value="<?php echo $user?>"><br>
-				Password Usuario<br> <input type="password" name="pass" value="<?php echo $pass?>"><br>
+				Password Usuario<br> <input type="text" name="pass" value="<?php echo $pass?>"><br>
 				Usuario<br> <input type="text" name="email" value="<?php echo $email?>"><br>
-				Password administrador<br> <input type="password" name="pasadmin" value="<?php echo $pasadmin?>"><br>
+				Password administrador<br> <input type="text" name="pasadmin" value="<?php echo $pasadmin?>"><br>
 				
 				<br>
 				<input type="submit" value="Guardar" class="btn btn-success btn-primary">
