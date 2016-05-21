@@ -81,7 +81,7 @@ function agregaRegistro(){
 
 function eliminarProducto(id){
 	var url = '../php/elimina-personal.php';
-	var pregunta = confirm('¿Esta seguro de eliminar este Producto?');
+	var pregunta = confirm('¿Esta seguro de eliminar este Usuario?');
 	if(pregunta==true){
 		$.ajax({
 		type:'POST',

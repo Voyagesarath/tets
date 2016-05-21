@@ -99,7 +99,7 @@ body,td,th {
 		        </div>
 		        <br>
 		        <div align="center">
-				    No Control<br> <input type="number" min="0" max="100000" id="id" name="id" required><br>
+				    No Control<br> <input type="number" min="0" id="id" name="id" required><br>
 				    Nombre (Apellidos a Nombre)<br> <input type="text" id="nombre" name="nombre"  required=""><br>
 				    Departamento<br> 
 				    <select id=Departamento name="Nom_Departamento" required>
