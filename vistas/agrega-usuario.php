@@ -23,6 +23,25 @@ if (@!$_SESSION['user']) {
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 
     <link rel="shortcut icon" href="../images/favicon.ico">
+    <script>
+      function habilitar(value)
+      {
+       if(value=="1")
+      {
+         // habilitamos
+         document.getElementById("user").disabled=false;
+         document.getElementById("email").disabled=false;
+         document.getElementById("pass").disabled=false;
+         document.getElementById("pasadmin").disabled=true;
+       }else if(value=="2"){
+         // deshabilitamos
+         document.getElementById("user").disabled=false;
+         document.getElementById("email").disabled=false;
+         document.getElementById("pass").disabled=true;
+         document.getElementById("pasadmin").disabled=false;
+       }
+     }
+   </script>
   </head>
   <header class="header">
   <div class="container">
