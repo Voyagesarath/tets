@@ -9,105 +9,95 @@ if (@!$_SESSION['user']) {
 
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+   <meta charset="utf-8">
     <title>Oficina Editorial - ITH -</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <link rel="stylesheet" type="text/css" href="../css/estilos.css">
+<!-- Bootstrap -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+    <link href="../saphv2.css" rel="stylesheet">
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-    <script>
-		function habilitar(value)
-		{
-			if(value=="1")
-			{
-				// habilitamos
-				document.getElementById("user").disabled=false;
-				document.getElementById("email").disabled=false;
-				document.getElementById("pass").disabled=false;
-				document.getElementById("pasadmin").disabled=true;
-			}else if(value=="2"){
-				// deshabilitamos
-				document.getElementById("user").disabled=false;
-				document.getElementById("email").disabled=false;
-				document.getElementById("pass").disabled=true;
-				document.getElementById("pasadmin").disabled=false;
-			}
-		}
-	</script>
+    <link rel="shortcut icon" href="../images/favicon.ico">
   </head>
-  <style type="text/css">
-body {
-	background-color: ##F2F2F2;
-	
-}
-body,td,th {
-	color: #00000;
-}
-
-</style>
-<header>
+  <header class="header">
+  <div class="container">
   <img src="../images/header-ith.png">
-
+<div class="row">
+</div>
 </header>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<table width="100%" border="0">
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
+<body>
+  <!-- top menu -->
+<nav id="top-menu" class="navbar navbar-default">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="admin.php">Panel administrativo</a>
+    </div>
+       
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <form action="#" class="navbar-search form-inline" style="margin-top:6px">
+    
+    </form>
+          <ul class="nav pull-right">
+        <li><a href="">Bienvenido <strong><?php echo $_SESSION['user'];?></strong> </a></li>
+          <li><a href="../php/desconectar.php"> Cerrar Cesión </a></li>       
+    </ul>
+  </div><!-- /.container-fluid -->
+</nav>
+<!-- /top memu -->
+
+
+<!-- body -->
 <div class="container">
-<header class="header">
 <div class="row">
-</div>
-</header>
+    
+   <!-- sidebar -->
+   <div class="col-md-3">
+     <!-- panel -->
+        <div class="panel panel-default">
+         <div class="panel-heading">
+            <i class="fa fa-bars"></i> Menu
+            <i class="showmenu fa fa-angle-down pull-right"></i>
+         </div>
+          <div id="sider-menu" class="panel-body">
+             <!-- links -->
+                <a href="admin.php"><i class="fa fa-home"></i> Inicio</a>
+                 <a href="charts.php"><i class="fa fa-area-chart"></i> Datos Estadisticos</a>
+                 <a href="users.php"><i class="fa fa-users"></i> Usuarios</a>
+             <!-- /links -->
+          </div>
+        </div>
+     <!-- /panel -->
+   </div>
+   <!-- /sidebar -->
 
-  <!-- Navbar
-    ================================================== -->
-
-
-<div class="navbar">
-  <div class="navbar-inner">
-	<div class="container">
-	  <div class="nav-collapse">
-		<ul class="nav">
-			<li class=""><a href="admin.php">ADMINISTRADOR DEL SITIO</a></li>
-			 
-	
-		</ul>
-		<form action="#" class="navbar-search form-inline" style="margin-top:6px">
-		
-		</form>
-		<ul class="nav pull-right">
-		<li><a href="">Bienvenido <strong><?php echo $_SESSION['user'];?></strong> </a></li>
-			  <li><a href="../php/desconectar.php"> Cerrar Cesión </a></li>			 
-		</ul>
-	  </div><!-- /.nav-collapse -->
-	</div>
-  </div><!-- /navbar-inner -->
-</div>
-
-<!-- ======================================================================================================================== -->
-<div class="row">
-	
-	
-		
-	<div class="span12">
-
-		<div class="caption">
+   <!-- controls -->
+   <div class="col-md-9">
+    <!-- panel -->
+        <div class="panel panel-default">
+         <div class="panel-heading">
+           <i class="fa fa-users"></i> Administración de usuarios
+           <a data-toggle="modal" data-target="#myModal" class="pull-right"><i class="fa fa-user-plus"></i></a>
+         </div>
+          <div class="panel-body">
 		
 <!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
 		<h2> Administración de usuarios nuevos</h2>	
 		<div class="well well-small">
 		<hr class="soft"/>
-		<h4>Agrega usuarios nuevos</h4>
+		<h4 align="center">Agrega nuevo usuario</h4>
 		<div class="row-fluid">
 		
 
@@ -123,10 +113,10 @@ body,td,th {
 				    Usuario<br> <input type="text" id="email" name="email"  required="" disabled><br>
 				    Password usuario<br> <input type="password" id="pass" name="pass" disabled><br>
 				    Pssword administrador<br> <input type="password" id="pasadmin" name="pasadmin" disabled><br>
+				    <input align="right" type="submit" value="Guardar" class="btn btn-success btn-primary">
 				</div>
 				<br>
-				<br>
-				<input type="submit" value="Guardar" class="btn btn-success btn-primary">
+				
 			</form>
 
 				  
@@ -136,7 +126,6 @@ body,td,th {
 		
 		</div>	
 		</div>	
-		<br/>
 		
 
 
@@ -169,8 +158,11 @@ body,td,th {
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../bootstrap/js/jquery-1.8.3.min.js"></script>
-    <script src="../bootstrap/js/bootstrap.min.js"></script>
-	</style>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/Chart.js"></script>
+    <script src="../js/saphv2.js"></script>
   </body>
 </html>
