@@ -15,7 +15,7 @@ echo '<table class="table table-striped table-condensed table-hover">
                 <th width="300">Nombre</th>
                 <th width="300">Departamento</th>
                 <th width="300">Correo Electronico</th>
-                <th width="50">Opciones</th>
+                <th width="30">Opciones</th>
             </tr>';
 if(mysql_num_rows($registro)>0){
 	while($registro2 = mysql_fetch_array($registro)){
@@ -24,7 +24,7 @@ if(mysql_num_rows($registro)>0){
 				<td>'.$registro2['Nom_Personal'].'</td>
 				<td>'.$registro2['Nom_Departamento'].'</td>
 				<td>'.$registro2['Correo_Electronico'].'</td>
-				<td><a href="../vistas/actualizarpersonal.php?id=('.$registro2['id_personal'].');" class="glyphicon glyphicon-edit"></a> <a href="javascript:eliminarProducto('.$registro2['id_personal'].');" class="glyphicon glyphicon-remove-circle"></a></td>
+				<td><a href="../vistas/actualizarpersonal.php?id=('.$registro2['id_personal'].');" class="glyphicon glyphicon-edit"></a> </a><a href="../vistas/reporte-usuario.php;" class="glyphicon glyphicon-th-list"></a> <a href="javascript:eliminarProducto('.$registro2['id_personal'].');" class="glyphicon glyphicon-remove-circle"></td>
 			</tr>';
 	}
 }else{
