@@ -89,7 +89,7 @@ body,td,th {
 		<h2> Administración de usuarios nuevos</h2>	
 		<div class="well well-small">
 		<hr class="soft"/>
-		<h4>Agrega usuarios nuevos</h4>
+		<h4 align="center">Agrega usuarios nuevos</h4>
 		<div class="row-fluid">
 		
 

@@ -12,13 +12,13 @@ if (@!$_SESSION['user']) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <link rel="stylesheet" type="text/css" href="../css/estilos.css">
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-
-    <link rel="shortcut icon" href="../images/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="../bootstrap/css/bootstrap2.css" rel="stylesheet">
+<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="../bootstrap/css/bootstrap-theme2.css" rel="stylesheet">
+<link href="../bootstrap/css/bootstrap-theme2.min.css" rel="stylesheet">
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script src="../bootstrap/js/bootstrap.js"></script>
   </head>
   <style type="text/css">
 body {

@@ -129,9 +129,9 @@ if (@!$_SESSION['user']) {
 				
 				<br>
 				<input type="submit" value="Guardar" class="btn btn-success btn-primary">
-		</div>
+		
 			</form>
-
+</div>
 				  
 		
 		

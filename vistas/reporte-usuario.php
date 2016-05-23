@@ -96,8 +96,10 @@ body,td,th {
 
 
       	<?php
+
+      	$id = (isset($_GET['nombre']) ? urldecode($_GET['nombre']) : null);
 				require("../php/connect_db.php");
-$registro = ("SELECT * FROM reg_serv_copiado where maestro = $id order by id_reg_serv_copiado ASC");
+$registro = mysql_query("SELECT * FROM reg_serv_copiado where maestro = $id order by id_reg_serv_copiado ASC") or die(mysql_error());
 		echo '<table class="table table-striped table-condensed table-hover">
         	<tr>
             	<th width="30">ID Servicio</th>
@@ -107,9 +109,9 @@ $registro = ("SELECT * FROM reg_serv_copiado where maestro = $id order by id_reg
                 <th width="150">Clave</th>
                 <th width="50">Fecha</th>
             </tr>';
-            $query = mysql_query($registro) or die(mysql_error());
-if(mysql_num_rows($query)>0){
-	while($registro2 = mysql_fetch_array($query)){
+
+if(mysql_num_rows($registro)>0){
+	while($registro2 = mysql_fetch_array($registro)){
 		echo '<tr>
 				<td>'.$registro2['id_reg_serv_copiado'].'</td>
 				<td>'.$registro2['departamento'].'</td>

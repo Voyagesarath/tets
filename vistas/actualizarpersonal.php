@@ -86,7 +86,7 @@ body,td,th {
 		<h2> Administración de Personal Registrado</h2>	
 		<div class="well well-small">
 		<hr class="soft"/>
-		<h4>Edición de Personal</h4>
+		<h4 align="center">Edición de Personal</h4>
 		<div class="row-fluid">
 		
 		<?php
@@ -105,13 +105,14 @@ body,td,th {
 
 
 		?>
-
+		<div align="center">
 		<form name="form1" action="../php/ejecuta-actualizar-personal.php" method="post">
 				Id<br><input type="text" name="id" value= "<?php echo $id ?>" readonly="readonly"><br>
 				Nombre<br> <input type="text" name="Nombre" value="<?php echo $Nombre?>"><br>
 				Departamento<br> <input type="text" name="Departamento" value="<?php echo $Departamento?>"><br>
 				Correo Electronico<br> <input type="email" name="email" value="<?php echo $email?>"><br>
 				<br>
+		</div>
 				<input type="submit" name="Guardar" value="Guardar" class="btn btn-success btn-primary">
 		</form>
 

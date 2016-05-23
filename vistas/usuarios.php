@@ -18,6 +18,7 @@ if (@!$_SESSION['user']) {
 <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="../bootstrap/css/bootstrap-theme2.css" rel="stylesheet">
 <link href="../bootstrap/css/bootstrap-theme2.min.css" rel="stylesheet">
+<link href="../css/responsive.css" rel="stylesheet">
 <script src="../bootstrap/js/bootstrap.min.js"></script>
 <script src="../bootstrap/js/bootstrap.js"></script>
 <script src="../js/jquery.js"></script>
@@ -86,11 +87,10 @@ body,td,th {
 
 		<div class="caption">
 		
-<!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
-		<h2> Administración de usuarios registrados</h2>	
+<!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->	
 		<div class="well well-small">
 		<hr class="soft"/>
-		<h4>Tabla de Usuarios</h4>
+		<h4 align="center">Administración de Usuarios Registrados</h4>
 		<div class="row-fluid">
 
 

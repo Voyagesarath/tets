@@ -12,9 +12,9 @@ if (@!$_SESSION['user']) {
 <meta name="description" content="">
 <link rel="shortcut icon" href="../images/favicon.ico">
 <link rel="stylesheet" type="text/css" href="../css/estilos.css">
-<link href="../bootstrap/css/bootstrap2.min.css" rel="stylesheet"/>
-<link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
-
+<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="../bootstrap/css/bootstrap2.css" rel="stylesheet">
+<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="../bootstrap/css/bootstrap-theme2.css" rel="stylesheet">
 <link href="../bootstrap/css/bootstrap-theme2.min.css" rel="stylesheet">
 <script src="../bootstrap/js/bootstrap.min.js"></script>
@@ -26,6 +26,16 @@ if (@!$_SESSION['user']) {
 
 </head>
 
+  <style type="text/css">
+body {
+    background-color: ##F2F2F2;
+    
+}
+body,td,th {
+    color: ##000000;
+}
+
+</style>
 <header>
   <img src="../images/header-ith.png">
 
@@ -33,8 +43,19 @@ if (@!$_SESSION['user']) {
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
+<table width="100%" border="0">
+  <tr>
+    <td>&nbsp;</td>
+    <!--<td width="96%" align="center"><img src="editorial.png" width="820" height="100" /></td>-->
+    <td>&nbsp;</td>
+  </tr>
+<div class="container">
+<header class="header">
+<div class="row">
+    </div>
+</header>
 
-<!-- Navbar
+  <!-- Navbar
     ================================================== -->
 
 
@@ -47,17 +68,32 @@ if (@!$_SESSION['user']) {
              
     
         </ul>
-        <form action="#" class="navbar-search form-inline" style="margin-top:6px" style="padding: 10px">
+        <form action="#" class="navbar-search form-inline" style="margin-top:6px">
         
         </form>
         <ul class="nav pull-right">
         <li><a href="">Bienvenido <strong><?php echo $_SESSION['user'];?></strong> </a></li>
-              <li><a href="../desconectar.php"> Cerrar Cesión </a></li>             
+              <li><a href="../php/desconectar.php"> Cerrar Cesión </a></li>          
         </ul>
       </div><!-- /.nav-collapse -->
     </div>
   </div><!-- /navbar-inner -->
 </div>
+
+<!-- ======================================================================================================================== -->
+<div class="row">
+    
+    
+        
+    <div class="span12">
+
+        <div class="caption">
+        
+<!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->   
+        <div class="well well-small">
+        <hr class="soft"/>
+        <h4 align="center">Genera Reportes de Servicios</h4>
+        <div class="row-fluid">
 
 <body>
 
@@ -75,7 +111,7 @@ if (@!$_SESSION['user']) {
     </section>
 
     <div class="registros" id="agrega-registros"></div>
-
+</div></div>
     
       
 

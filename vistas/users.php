@@ -122,7 +122,7 @@ if (@!$_SESSION['user']) {
               echo "<td>$arreglo[4]</td>";
 
               echo "<td><a href='actualizar.php?id=$arreglo[0]'><img src='../images/actualizar.gif' class='img-rounded'></td>";
-            echo "<td><a href='users.php?id=$arreglo[0]&idborrar=2'><img src='../images/eliminar.png' class='img-rounded'/></a></td>";
+              echo "<td><a href='users.php?id=$arreglo[0]&idborrar=2'><img src='../images/eliminar.png' class='img-rounded'/></a></td>";
 
             
           echo "</tr>";
@@ -144,7 +144,7 @@ if (@!$_SESSION['user']) {
       ?>
       <section align="right">
         <form name="agrega-usuario" action="agrega-usuario.php" method="post">
-          <input type="submit" name="AgregaUsuario" value="Agrega un usuario nuevo"/>
+          <input type="submit" name="AgregaUsuario" value="Agrega un usuario nuevo" class="btn btn-success btn-primary"/>
         </form>
       </section>
 
