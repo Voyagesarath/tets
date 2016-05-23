@@ -82,7 +82,7 @@ body,td,th {
 		<hr class="soft"/>
 		<h4 align="center" style="color: #605C5C">Reportes y/o Busquedas por Operador</h4>
 		<div class="row-fluid">
-		<a target="_blank" href="javascript:reportePDF();" class="btn btn-danger">Exportar Busqueda a PDF</a>
+		
 		<?php
 
 				  include ('connect_db.php');
