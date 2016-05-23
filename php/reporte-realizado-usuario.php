@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-		<?php
+<?php
 session_start();
 if (@!$_SESSION['user']) {
 	header("Location:../index.php");
@@ -7,12 +7,11 @@ if (@!$_SESSION['user']) {
 ?>
 <html lang="en">
   <head>
- <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Editorial ITH</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<link rel="shortcut icon" href="../images/favicon.ico">
-<link rel="stylesheet" type="text/css" href="../css/estilos.css">
+    <meta charset="utf-8">
+    <title>Transportes Maino</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="../css/estilos.css">
 <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 <link href="../bootstrap/css/bootstrap2.css" rel="stylesheet">
 <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -22,18 +21,6 @@ if (@!$_SESSION['user']) {
 <script src="../bootstrap/js/bootstrap.js"></script>
 <script src="../js/jquery.js"></script>
 <script src="../js/myjava.js"></script>
-<script type="text/javascript">
-            $("document").ready(function(){
-                $("#Departamento").load("../php/departamentos.php");
-                $("#Departamento").change(function(){
-                	var id = $("#Departamento").val();
-                	$.get("../php/maestros.php",{param_id:id})
-                	.done(function(data){
-                		$("#maestro").html(data);
-                	})
-                	}) 
-            })
-</script>
   </head>
   <style type="text/css">
 body {
@@ -41,7 +28,7 @@ body {
 	
 }
 body,td,th {
-	color: ##000000;
+	color: #FFF;
 }
 
 </style>
@@ -50,18 +37,11 @@ body,td,th {
 
 </header>
 <p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<table width="100%" border="0">
-  <tr>
-    <td>&nbsp;</td>
-    <!--<td width="96%" align="center"><img src="editorial.png" width="820" height="100" /></td>-->
-    <td>&nbsp;</td>
-  </tr>
+
+
 <div class="container">
 <header class="header">
-<div class="row">
-	</div>
+
 </header>
 
   <!-- Navbar
@@ -73,7 +53,7 @@ body,td,th {
 	<div class="container">
 	  <div class="nav-collapse">
 		<ul class="nav">
-			<li class=""><a href="principal.php">Principal</a></li>
+			<li class=""><a href="../vistas/principal.php">Principal</a></li>
 			 
 	
 		</ul>
@@ -97,36 +77,65 @@ body,td,th {
 	<div class="span12">
 
 		<div class="caption">
-		
-<!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
-		<h2> Reporte de Servicios Por Usuarios</h2>	
+
 		<div class="well well-small">
 		<hr class="soft"/>
-		<h4>Tabla de Usuarios</h4>
+		<h4 align="center" style="color: #605C5C">Reportes y/o Busquedas por Operador</h4>
 		<div class="row-fluid">
+		<a target="_blank" href="javascript:reportePDF();" class="btn btn-danger">Exportar Busqueda a PDF</a>
+		<?php
 
-		<form name="form1" action="../php/reporte-realizado-usuario.php" method="post">
-		<p align="center">
-			<b style="color: #837E7E">Departamento</b><br>
-			<select id=Departamento name="Nom_Departamento" required>
-				
-			</select>
+				  include ('connect_db.php');
 
-            <br>
-			<b style="color: #837E7E">Maestro</b><br> 
-			<select id=maestro name="maestro" required>
-				
+				  $maestro = $_POST['maestro'];
+				  $desde = $_POST['fechainicio'];
+				  $hasta = $_POST ['fechafinal'];
 
-			</select>
-       
-            <br>
-			<b style="color: #837E7E">Fecha de Inicio</b><br> <input type="date" name="fechainicio" id="bd-desde" align="center" required><br>
-			<br>
-			<b style="color: #837E7E">Fecha Final</b><br> <input type="date" name="fechafinal" id="bd-hasta" align="center" required><br>
-		</p>
-        <input type="submit" name="generar" value="Generar"/>
-	    </form>
+				  if(isset($desde)==false){
 
+				  	$desde = $hasta;
+				  }
+				  if(isset($hasta)==false){
+				  	$desde = $hasta;
+				  }
+
+//EJECUTAMOS LA CONSULTA DE BUSQUEDA
+
+$registro = mysql_query("SELECT * FROM reg_serv_copiado WHERE maestro = '$maestro' and fecha BETWEEN '$desde' AND '$hasta' ORDER BY id_reg_serv_copiado ASC");
+
+//CREAMOS NUESTRA VISTA Y LA DEVOLVEMOS AL AJAX
+
+echo '<table class="table table-striped table-condensed table-hover">
+        	<tr>
+            	<th style="color: #605C5C" width="30">ID</th>
+                <th style="color: #605C5C" width="180">Departamento</th>
+                <th style="color: #605C5C" width="180">Maestro</th>
+                <th style="color: #605C5C" width="50">No. Copias</th>
+                <th style="color: #605C5C" width="50">Clave</th>
+                <th style="color: #605C5C" width="30">Fecha</th>
+            </tr>';
+if(mysql_num_rows($registro)>0){
+	while($registro2 = mysql_fetch_array($registro)){
+		echo '<tr>
+				<td style="color: #837e7e">'.$registro2['id_reg_serv_copiado'].'</td>
+				<td style="color: #837e7e">'.$registro2['departamento'].'</td>
+				<td style="color: #837e7e">'.$registro2['maestro'].'</td>
+				<td style="color: #837e7e">'.$registro2['num_copias'].'</td>
+				<td style="color: #837e7e">'.$registro2['clave'].'</td>
+				<td style="color: #837e7e">'.fechaNormal($registro2['fecha']).'</td>
+				</tr>';
+	}
+}else{
+	echo '<tr>
+				<td style="color: #837e7e" colspan="6">No se encontraron resultados</td>
+			</tr>';
+}
+echo '</table>';
+
+?>
+
+
+		
 		<div class="span8">
 		
 		</div>	

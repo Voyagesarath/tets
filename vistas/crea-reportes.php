@@ -94,6 +94,10 @@ body,td,th {
         <hr class="soft"/>
         <h4 align="center">Genera Reportes de Servicios</h4>
         <div class="row-fluid">
+        <p align="center">
+          Para generar un reporte general de un usuario en especifico da clic <a href="reporte-usuario.php">aqui</a>.
+        </p>
+        
 
 <body>
 
