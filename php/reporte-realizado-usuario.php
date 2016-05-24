@@ -133,6 +133,13 @@ if(mysql_num_rows($registro)>0){
 echo '</table>';
 
 ?>
+<table align="right">
+	<tr>
+		<td>
+			<input type="button" value="Imprime Esta Pagina" onClick="window.print()" class="btn btn-primary">
+		</td>
+	</tr>
+</table>
 
 
 		
