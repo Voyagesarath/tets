@@ -33,12 +33,14 @@ if (@!$_SESSION['user']) {
          document.getElementById("email").disabled=false;
          document.getElementById("pass").disabled=false;
          document.getElementById("pasadmin").disabled=true;
+         document.getElementById("guardar").disabled=false;
        }else if(value=="2"){
          // deshabilitamos
          document.getElementById("user").disabled=false;
          document.getElementById("email").disabled=false;
          document.getElementById("pass").disabled=true;
          document.getElementById("pasadmin").disabled=false;
+         document.getElementById("guardar").disabled=false;
        }
      }
    </script>
@@ -129,10 +131,10 @@ if (@!$_SESSION['user']) {
 		        <br>
 		        <div align="center">
 				    Nombre<br> <input type="text" id="user" name="user" required="" disabled><br>
-				    Usuario<br> <input type="text" id="email" name="email"  required="" disabled><br>
+				    Usuario<br> <input type="text" id="email" name="email" required="" disabled><br>
 				    Password usuario<br> <input type="password" id="pass" name="pass" disabled><br>
 				    Pssword administrador<br> <input type="password" id="pasadmin" name="pasadmin" disabled><br>
-				    <input align="right" type="submit" value="Guardar" class="btn btn-success btn-primary">
+				    <input align="right" name="guardar" id="guardar" type="submit" value="Guardar" class="btn btn-success btn-primary" disabled>
 				</div>
 				<br>
 				

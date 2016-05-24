@@ -100,7 +100,7 @@ body,td,th {
 		        <br>
 		        <div align="center">
 				    No Control<br> <input type="number" min="0" id="id" name="id" required><br>
-				    Nombre (Apellidos a Nombre)<br> <input type="text" id="nombre" name="nombre"  required=""><br>
+				    Nombre (Apellidos a Nombre)<br> <input type="text" id="nombre" name="nombre" onKeyUp="this.value=this.value.toUpperCase();" required=""><br>
 				    Departamento<br> 
 				    <select id=Departamento name="Nom_Departamento" required>
 				    	<option value="BIOMEDICA">BIOMEDICA</option>
