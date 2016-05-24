@@ -80,7 +80,7 @@ body,td,th {
 
 		<div class="well well-small">
 		<hr class="soft"/>
-		<h4 align="center" style="color: #605C5C">Reportes y/o Busquedas por Operador</h4>
+		<h4 align="center" style="color: #605C5C">Reportes y/o Busquedas por Personal</h4>
 		<div class="row-fluid">
 		
 		<?php
