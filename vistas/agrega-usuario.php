@@ -31,7 +31,7 @@ if (@!$_SESSION['user']) {
          // habilitamos
          document.getElementById("user").disabled=false;
          document.getElementById("email").disabled=false;
-         document.getElementById("pass").disabled=false;
+         document.getElementById("clave").disabled=false;
          document.getElementById("pasadmin").disabled=true;
          document.getElementById("guardar").disabled=false;
        }else if(value=="2"){
@@ -125,15 +125,15 @@ if (@!$_SESSION['user']) {
 
 		<form action="../php/agrega-nuevo-usuario.php" method="post">
 		        <div align="center">
-		            <input type="radio" value="1" name="habilitarDeshabilitar" onchange="habilitar(this.value);"> Usuario Normal &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		            <input type="radio" value="2" name="habilitarDeshabilitar" onchange="habilitar(this.value);"> Usuario Administrador
+		            <input type="radio" value="1" name="normal" onchange="habilitar(this.value);"> Usuario Normal &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		            <input type="radio" value="2" name="admin" onchange="habilitar(this.value);"> Usuario Administrador
 		        </div>
 		        <br>
 		        <div align="center">
-				    Nombre<br> <input type="text" id="user" name="user" required="" disabled><br>
-				    Usuario<br> <input type="text" id="email" name="email" required="" disabled><br>
-				    Password usuario<br> <input type="password" id="pass" name="pass" disabled><br>
-				    Pssword administrador<br> <input type="password" id="pasadmin" name="pasadmin" disabled><br>
+				    Nombre<br> <input type="text" id="user" name="user" minlength="6" maxlength="30" required="" disabled><br>
+				    Usuario<br> <input type="text" id="email" name="email" minlength="6" maxlength="16" required="" disabled><br>
+				    Password usuario<br> <input type="password" id="clave" name="clave" minlength="6" maxlength="16" disabled><br>
+				    Pssword administrador<br> <input type="password" id="pasadmin" name="pasadmin" maxlength="16" disabled><br>
 				    <input align="right" name="guardar" id="guardar" type="submit" value="Guardar" class="btn btn-success btn-primary" disabled>
 				</div>
 				<br>
