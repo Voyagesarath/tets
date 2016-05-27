@@ -6,13 +6,12 @@ if (@!$_SESSION['user']) {
 }
 else{
    
-include("connect_db2.php");
-
-$con=mysql_connect($host,$user,$pass) or die ("Problemas al conectar");
-mysql_select_db($baseDatos,$con)or die(mysql_error());
+include("connect_db.php");
 
 
-	mysql_query("INSERT INTO login (user, password, email, pasadmin) VALUES ('$_POST[user]','$_POST[pass]','$_POST[email]','$_POST[pasadmin]')", $con);
+
+
+	mysql_query("INSERT INTO login (user, password, email, pasadmin) VALUES ('$_POST[user]','$_POST[pass]','$_POST[email]','$_POST[pasadmin]')", $conexion);
 
 	echo '<script>alert("Datos Guardados Con Exito")</script> ';
 		
