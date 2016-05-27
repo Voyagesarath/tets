@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <?php   
-
+session_start();
+if (@!$_SESSION['user']) {
+  header("Location:../index.php");
+}
+else{
 // Recibimos por POST los datos procedentes del formulario   
 include("connect_db2.php");
 $fecha = date('Y-m-d');
@@ -25,8 +29,7 @@ while ($row = mysql_fetch_assoc($query)) {
 		
 		echo "<script>location.href='../vistas/servicio-copiado.php'</script>";
 //}
-
-//$_POST[Nom_Departamento] '".$departamento."'
+}
 
 ?>   
 

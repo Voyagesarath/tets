@@ -136,7 +136,7 @@ if (@!$_SESSION['user']) {
             $sqlborrar="DELETE FROM login WHERE id=$id";
             $resborrar=mysql_query($sqlborrar);
             echo '<script>alert("REGISTRO ELIMINADO")</script> ';
-            //header('Location: proyectos.php');
+
             echo "<script>location.href='users.php'</script>";
           }
 

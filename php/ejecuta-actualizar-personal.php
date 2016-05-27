@@ -1,6 +1,10 @@
 <?php
 
-
+session_start();
+if (@!$_SESSION['user']) {
+  header("Location:../index.php");
+}
+else{
 //extract($_POST);	//extraer todos los valores del metodo post del formulario de actualizar
 
 	require("connect_db.php");
@@ -26,4 +30,5 @@
 
 		
 	}
+}
 ?>

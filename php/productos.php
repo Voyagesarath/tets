@@ -1,5 +1,9 @@
 <?php
-
+session_start();
+if (@!$_SESSION['user']) {
+  header("Location:../index.php");
+}
+else{
 if(strlen($_GET['desde'])>0 and strlen($_GET['hasta'])>0){
 	$desde = $_GET['desde'];
 	$hasta = $_GET['hasta'];
@@ -56,4 +60,5 @@ while($productos2 = mysql_fetch_array($productos)){
 }
 
 $pdf->Output('reporte.pdf','I');
+}
 ?>

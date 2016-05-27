@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (@!$_SESSION['user']) {
+  header("Location:../index.php");
+}
+else{
 include('connect_db.php');
 
 $dato = $_POST['dato'];
@@ -33,4 +38,5 @@ if(mysql_num_rows($registro)>0){
 			</tr>';
 }
 echo '</table>';
+}
 ?>

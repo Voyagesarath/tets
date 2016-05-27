@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <?php   
-
-   
-include("connect_db2.php");
+session_start();
+if (@!$_SESSION['user']) {
+  header("Location:../index.php");
+}
+else{
+	include("connect_db2.php");
 
 $con=mysql_connect($host,$user,$pass) or die ("Problemas al conectar");
 mysql_select_db($baseDatos,$con)or die(mysql_error());
@@ -13,6 +16,8 @@ mysql_select_db($baseDatos,$con)or die(mysql_error());
 	echo '<script>alert("Datos Guardados Con Exito")</script> ';
 		
 		echo "<script>location.href='../vistas/usuarios.php'</script>";
+} 
+
 
 
 

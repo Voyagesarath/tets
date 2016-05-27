@@ -1,7 +1,11 @@
 
 <?php
 //include("connect_db2.php");
-
+session_start();
+if (@!$_SESSION['user']) {
+  header("Location:../index.php");
+}
+else{
 $user="root";
 $pass="";
 $server="localhost";
@@ -14,5 +18,5 @@ $result = mysqli_query($con, "SELECT * FROM departamentos order by Nom_Departame
 while ($row = mysqli_fetch_array($result)){
 	echo '<option value="'.$row['ID_Departamento'].'">'.$row['Nom_Departamento'].'</option>';
 }
-
+}
 ?>

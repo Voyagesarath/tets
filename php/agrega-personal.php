@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (@!$_SESSION['user']) {
+  header("Location:../index.php");
+}
+else{
 include('connect_db.php');
 $id = $_POST['id_personal'];
 $proceso = $_POST['pro'];
@@ -45,4 +50,5 @@ echo '<table class="table table-striped table-condensed table-hover">
 				</tr>';
 	}
 echo '</table>';
+}
 ?>

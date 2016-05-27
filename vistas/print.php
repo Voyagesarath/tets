@@ -1,3 +1,7 @@
+session_start();
+if (@!$_SESSION['user']) {
+  header("Location:../index.php");
+}
 <html>
 	<head>
 		<script src="../js/jquery.js"></script>
