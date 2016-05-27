@@ -1,9 +1,5 @@
 <?php 
-session_start();
-if (@!$_SESSION['user']) {
-  header("Location:../index.php");
-}
-else{
+
 class DB{
 	var $conect;
   
@@ -31,5 +27,5 @@ class DB{
 		return true;	
 	}
 }
-}
+
 ?>
