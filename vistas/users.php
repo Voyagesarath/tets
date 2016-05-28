@@ -22,6 +22,15 @@ if (@!$_SESSION['user']) {
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 
     <link rel="shortcut icon" href="../images/favicon.ico">
+    <script type="text/javascript">
+    function confirmation() {
+    if(confirm("Realmente desea eliminar?"))
+    {
+        return true;
+    }
+    return false;
+    }
+    </script>
     </head>
 <header class="header">
   <div class="container">
@@ -124,7 +133,7 @@ if (@!$_SESSION['user']) {
               echo "<td><a href='actualizar.php?id=$arreglo[0]'><img src='../images/actualizar.gif' class='img-rounded'></td>";
               echo "<td><a href='users.php?id=$arreglo[0]&idborrar=2'><img src='../images/eliminar.png' class='img-rounded'/></a></td>";
 
-            
+    
           echo "</tr>";
         }
 
@@ -132,13 +141,11 @@ if (@!$_SESSION['user']) {
 
           extract($_GET);
           if(@$idborrar==2){
-    
-            $sqlborrar="DELETE FROM login WHERE id=$id";
-            $resborrar=mysql_query($sqlborrar);
-            echo '<script>alert("REGISTRO ELIMINADO")</script> ';
-
-            echo "<script>location.href='users.php'</script>";
-          }
+              $sqlborrar="DELETE FROM login WHERE id=$id";
+              $resborrar=mysql_query($sqlborrar);
+              echo '<script>alert("REGISTRO ELIMINADO")</script> ';
+              echo "<script>location.href='users.php'</script>";
+            }
 
 
       ?>

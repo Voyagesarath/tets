@@ -7,8 +7,11 @@ if (@!$_SESSION['user']) {
 else{
 	include("connect_db.php");
 
+if(strlen($nombre) < 10 ){
 
-
+echo '<script>alert("Debe escribir el nombre completo")</script>';
+	echo "<script>location.href='../vistas/agrega-personal.php'</script>";
+}else{
 
 	mysql_query("INSERT INTO personal (id_personal, Nom_Personal, Nom_Departamento, Correo_Electronico, ID_Departamento) VALUES ('$_POST[id]','$_POST[nombre]','$_POST[Nom_Departamento]','$_POST[email]', '$_POST[ID_Departamento]')", $conexion);
 
@@ -17,7 +20,7 @@ else{
 		echo "<script>location.href='../vistas/usuarios.php'</script>";
 } 
 
-
+}
 
 
 ?>  
