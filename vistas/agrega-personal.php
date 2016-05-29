@@ -99,10 +99,10 @@ body,td,th {
 		<div class="caption">
 		
 <!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
-		<h2> Reporte de Servicios Por Usuarios</h2>	
+		<h2> Agrega Personal</h2>	
 		<div class="well well-small">
 		<hr class="soft"/>
-		<h4>Tabla de Usuarios</h4>
+		<h4>Agrega un nuevo personal</h4>
 		<div class="row-fluid">
 		
 
