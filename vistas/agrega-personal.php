@@ -24,14 +24,7 @@ if (@!$_SESSION['user']) {
 <script src="../js/myjava.js"></script>
 <script type="text/javascript">
             $("document").ready(function(){
-                $("#Departamento").load("../php/departamentos.php");
-                $("#Departamento").change(function(){
-                	var id = $("#Departamento").val();
-                	$.get("../php/maestros.php",{param_id:id})
-                	.done(function(data){
-                		$("#maestro").html(data);
-                	})
-                	}) 
+                $("#Departamento").load("../php/departamentos.php"); 
             })
 </script>
   </head>
@@ -113,7 +106,7 @@ body,td,th {
 		        <br>
 		        <div align="center">
 				    No Control<br> <input type="number" min="0" id="id" name="id" required><br>
-				    Nombre<br> <input type="text" minlength="10" maxlength="100" id="nombre" name="nombre" onKeyUp="this.value=this.value.toUpperCase();" required=""><br>
+				    Nombre (Apellidos - Nombre)<br> <input type="text" minlength="10" maxlength="100" id="nombre" name="nombre" onKeyUp="this.value=this.value.toUpperCase();" required=""><br>
 				    Departamento<br> 
 				    <select id=Departamento name="Nom_Departamento" required>
 				    	
