@@ -6,12 +6,8 @@ if (@!$_SESSION['user']) {
   header("Location:../index.php");
 }
 else{
-$user="root";
-$pass="";
-$server="localhost";
-$bd="academ";
-
-$con=mysqli_connect($host,$user,$pass,$bd);
+	
+	include("connect_db.php");
 
 $result = mysqli_query($con, "SELECT * FROM departamentos order by Nom_Departamento asc");
 
