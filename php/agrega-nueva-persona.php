@@ -6,14 +6,22 @@ if (@!$_SESSION['user']) {
 }
 else{
 	include("connect_db.php");
-
+$nombre=$_POST['nombre'];
 if(strlen($nombre) < 10 ){
 
 echo '<script>alert("Debe escribir el nombre completo")</script>';
 	echo "<script>location.href='../vistas/agrega-personal.php'</script>";
 }else{
 
-	mysql_query("INSERT INTO personal (id_personal, Nom_Personal, Nom_Departamento, Correo_Electronico, ID_Departamento) VALUES ('$_POST[id]','$_POST[nombre]','$_POST[Nom_Departamento]','$_POST[email]', '$_POST[ID_Departamento]')", $conexion);
+$departamento = $_POST["Nom_Departamento"];
+
+$query_string = "SELECT Nom_Departamento FROM departamentos where ID_Departamento = '$departamento'";
+$query = mysql_query($query_string) or die(mysql_error());
+
+while ($row = mysql_fetch_assoc($query)) {
+	$nomdepa= $row['Nom_Departamento'];
+}
+	mysql_query("INSERT INTO personal (id_personal, Nom_Personal, Nom_Departamento, Correo_Electronico, ID_Departamento) VALUES ('$_POST[id]','$_POST[nombre]','$nomdepa','$_POST[email]', '$departamento')", $conexion);
 
 	echo '<script>alert("Datos Guardados Con Exito")</script> ';
 		

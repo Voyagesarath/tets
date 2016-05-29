@@ -1,27 +1,39 @@
 <!DOCTYPE html>
-
-<?php
+		<?php
 session_start();
 if (@!$_SESSION['user']) {
 	header("Location:../index.php");
 }
 ?>
-
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>Oficina Editorial - ITH -</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <link rel="stylesheet" type="text/css" href="../css/estilos.css">
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-    
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Editorial ITH</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<link rel="shortcut icon" href="../images/favicon.ico">
+<link rel="stylesheet" type="text/css" href="../css/estilos.css">
+<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="../bootstrap/css/bootstrap2.css" rel="stylesheet">
+<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="../bootstrap/css/bootstrap-theme2.css" rel="stylesheet">
+<link href="../bootstrap/css/bootstrap-theme2.min.css" rel="stylesheet">
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script src="../bootstrap/js/bootstrap.js"></script>
+<script src="../js/jquery.js"></script>
+<script src="../js/myjava.js"></script>
+<script type="text/javascript">
+            $("document").ready(function(){
+                $("#Departamento").load("../php/departamentos.php");
+                $("#Departamento").change(function(){
+                	var id = $("#Departamento").val();
+                	$.get("../php/maestros.php",{param_id:id})
+                	.done(function(data){
+                		$("#maestro").html(data);
+                	})
+                	}) 
+            })
+</script>
   </head>
   <style type="text/css">
 body {
@@ -29,7 +41,7 @@ body {
 	
 }
 body,td,th {
-	color: #00000;
+	color: ##000000;
 }
 
 </style>
@@ -43,12 +55,13 @@ body,td,th {
 <table width="100%" border="0">
   <tr>
     <td>&nbsp;</td>
+    <!--<td width="96%" align="center"><img src="editorial.png" width="820" height="100" /></td>-->
     <td>&nbsp;</td>
   </tr>
 <div class="container">
 <header class="header">
 <div class="row">
-</div>
+	</div>
 </header>
 
   <!-- Navbar
@@ -86,10 +99,10 @@ body,td,th {
 		<div class="caption">
 		
 <!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
-		<h2> Administración de usuarios nuevos</h2>	
+		<h2> Reporte de Servicios Por Usuarios</h2>	
 		<div class="well well-small">
 		<hr class="soft"/>
-		<h4 align="center">Agrega usuarios nuevos</h4>
+		<h4>Tabla de Usuarios</h4>
 		<div class="row-fluid">
 		
 
@@ -100,62 +113,11 @@ body,td,th {
 		        <br>
 		        <div align="center">
 				    No Control<br> <input type="number" min="0" id="id" name="id" required><br>
-				    Nombre (Apellidos a Nombre)<br> <input type="text" minlength="10" maxlength="100" id="nombre" name="nombre" onKeyUp="this.value=this.value.toUpperCase();" required=""><br>
+				    Nombre<br> <input type="text" minlength="10" maxlength="100" id="nombre" name="nombre" onKeyUp="this.value=this.value.toUpperCase();" required=""><br>
 				    Departamento<br> 
 				    <select id=Departamento name="Nom_Departamento" required>
-				    	<option value="BIOMEDICA">BIOMEDICA</option>
-				    	<option value="CENTRO DE COMPUTO ADTIVO">CENTRO DE COMPUTO ADTIVO</option>
-				    	<option value="CENTRO DE INFORMACION">CENTRO DE INFORMACION</option>
-				    	<option value="CIENCIAS BASICAS">CIENCIAS BASICAS</option>
-				    	<option value="COMUNICACIÓN Y DIFUSION">COMUNICACIÓN Y DIFUSION</option>
-				    	<option value="DESARROLLO ACADEMICO">DESARROLLO ACADEMICO</option>
-				    	<option value="DIRECCION">DIRECCION</option>
-				    	<option value="DIVISION DE ESTUDIOS PROFESIONALES">DIVISION DE ESTUDIOS PROFESIONALES</option>
-				    	<option value="ECONOMICO ADMINISTRATIVO">ECONOMICO ADMINISTRATIVO</option>
-				    	<option value="ELECTRICA - ELECTRONICA">ELECTRICA - ELECTRONICA</option>
-				    	<option value="EXTRAESCOLARES">EXTRAESCOLARES</option>
-				    	<option value="GESTION TECNOLOGICA Y VINCULACION">GESTION TECNOLOGICA Y VINCULACION</option>
-				    	<option value="IDIOMAS">IDIOMAS</option>
-				    	<option value="INDUSTRIAL">INDUSTRIAL</option>
-				    	<option value="MANTENIMIENTO Y EQUIPO">MANTENIMIENTO Y EQUIPO</option>
-				    	<option value="METAL-MECANICA">METAL-MECANICA</option>
-				    	<option value="PLANEACION, PROG. E INFRAES.">PLANEACION, PROG. E INFRAES.</option>
-				    	<option value="POSGRADO">POSGRADO</option>
-				    	<option value="RECURSOS FINANCIEROS">RECURSOS FINANCIEROS</option>
-				    	<option value="RECURSOS HUMANOS">RECURSOS HUMANOS</option>
-				    	<option value="RECURSOS MATERIALES Y SERVICIOS">RECURSOS MATERIALES Y SERVICIOS</option>
-				    	<option value="SERVICIOS ESCOLARES">SERVICIOS ESCOLARES</option>
-				    	<option value="SISTEMAS Y COMPUTACION">SISTEMAS Y COMPUTACION</option>
-				    	<option value="SUBDIRECCION ACADEMICA">SUBDIRECCION ACADEMICA</option>
-				    </select><br>
-				    
-				    Confirma el Departamento<br>
-				<select id=idDepartamento name="ID_Departamento"  required>
-				    	<option value="1">BIOMEDICA</option>
-				    	<option value="2">CENTRO DE COMPUTO ADTIVO</option>
-				    	<option value="3">CENTRO DE INFORMACION</option>
-				    	<option value="4">CIENCIAS BASICAS</option>
-				    	<option value="5">COMUNICACIÓN Y DIFUSION</option>
-				    	<option value="6">DESARROLLO ACADEMICO</option>
-				    	<option value="7">DIRECCION</option>
-				    	<option value="8">DIVISION DE ESTUDIOS PROFESIONALES</option>
-				    	<option value="9">ECONOMICO ADMINISTRATIVO</option>
-				    	<option value="10">ELECTRICA - ELECTRONICA</option>
-				    	<option value="11">EXTRAESCOLARES</option>
-				    	<option value="12">GESTION TECNOLOGICA Y VINCULACION</option>
-				    	<option value="13">IDIOMAS</option>
-				    	<option value="14">INDUSTRIAL</option>
-				    	<option value="15">MANTENIMIENTO Y EQUIPO</option>
-				    	<option value="16">METAL-MECANICA</option>
-				    	<option value="17">PLANEACION, PROG. E INFRAES.</option>
-				    	<option value="18">POSGRADO</option>
-				    	<option value="19">RECURSOS FINANCIEROS</option>
-				    	<option value="20">RECURSOS HUMANOS</option>
-				    	<option value="21">RECURSOS MATERIALES Y SERVICIOS</option>
-				    	<option value="22">SERVICIOS ESCOLARES</option>
-				    	<option value="23">SISTEMAS Y COMPUTACION</option>
-				    	<option value="24">SUBDIRECCION ACADEMICA</option>
-				    </select><br>
+				    	
+				    </select><br><br>
 				    Correo Electronico<br> <input type="email" id="email" name="email"><br>
 				<br>
 				<br>
@@ -165,7 +127,7 @@ body,td,th {
 				  
 		
 		
-		<div class="span8">
+	<div class="span8">
 		
 		</div>	
 		</div>	
@@ -202,8 +164,8 @@ body,td,th {
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../bootstrap/js/jquery-1.8.3.min.js"></script>
-    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/jquery-1.8.3.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
 	</style>
   </body>
 </html>
