@@ -97,6 +97,24 @@ function eliminarProducto(id){
 		return false;
 	}
 }
+function eliminarUsuario(id){
+	var url = '../php/elimina-usuario.php';
+	var pregunta = confirm('¿Esta seguro de eliminar este Usuario?');
+	if(pregunta==true){
+		$.ajax({
+		type:'POST',
+		url:url,
+		data:'id='+id,
+		success: function(dato){
+			$('#tr'+dato).html("");
+			alert("Usuario eliminado correctamente");
+		}
+	});
+	return false;
+	}else{
+		return false;
+	}
+}
 
 function editarProducto(id){
 	$('#formulario')[0].reset();

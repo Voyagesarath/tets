@@ -2,9 +2,9 @@
 <?php
 session_start();
 if (@!$_SESSION['user']) {
-	header("Location:../index.php");
+  header("Location:../index.php");
 }
-?>		
+?>    
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -93,75 +93,88 @@ if (@!$_SESSION['user']) {
 
 <!-- ======================================================================================================================== -->
 
-		
+    
 <!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
-		<h2> Administración de usuarios registrados</h2>	
-		<div class="well well-small">
-		<hr class="soft"/>
-		<h4 align="center">Edición de usuarios</h4>
-		<div class="row-fluid">
-		
-		<?php
-		extract($_GET);
-		require("../php/connect_db.php");
+    <h2> Administración de usuarios registrados</h2>  
+    <div class="well well-small">
+    <hr class="soft"/>
+    <h4 align="center">Edición de usuarios</h4>
+    <div class="row-fluid">
+    
+    <?php
+    extract($_GET);
+    require("../php/connect_db.php");
 
-		$sql="SELECT * FROM login WHERE id=$id";
-		$ressql=mysql_query($sql);
-		while ($row=mysql_fetch_row ($ressql)){
-		    	$id=$row[0];
-		    	$user=$row[1];
-		    	$pass=$row[2];
-		    	$email=$row[3];
-		    	$pasadmin=$row[4];
-		    }
+    $sql="SELECT * FROM login WHERE id=$id";
+    $ressql=mysql_query($sql);
+    while ($row=mysql_fetch_row ($ressql)){
+          $id=$row[0];
+          $user=$row[1];
+          $pass=$row[2];
+          $email=$row[3];
+          $pasadmin=$row[4];
+        }
 
 
 
-		?>
+    ?>
 
-		<form action="../php/ejecutaactualizar.php" method="post">
-		<div align="center">
-				Id<br><input type="text" name="id" value= "<?php echo $id ?>" readonly="readonly"><br>
-				Nombre<br> <input type="text" name="user" value="<?php echo $user?>"><br>
-				Password Usuario<br> <input type="text" name="pass" value="<?php echo $pass?>"><br>
-				Usuario<br> <input type="text" name="email" value="<?php echo $email?>"><br>
-				Password administrador<br> <input type="text" name="pasadmin" value="<?php echo $pasadmin?>"><br>
-				
-				<br>
-				<input type="submit" value="Guardar" class="btn btn-success btn-primary">
-		
-			</form>
+    <form action="../php/ejecutaactualizar.php" method="post">
+    <div align="center">
+      <?php 
+        if($pass==""){
+      ?>
+        Id<br><input type="text" name="id" value= "<?php echo $id ?>" readonly="readonly"><br>
+        Nombre<br> <input type="text" name="user" value="<?php echo $user?>"><br>
+        Usuario<br> <input type="text" name="email" value="<?php echo $email?>"><br>
+        Password administrador<br> <input type="text" name="pasadmin" value="<?php echo $pasadmin?>"><br>
+        
+        <br>
+        <input type="submit" value="Guardar" class="btn btn-success btn-primary">
+      <?php
+        }else{
+      ?>
+      Id<br><input type="text" name="id" value= "<?php echo $id ?>" readonly="readonly"><br>
+        Nombre<br> <input type="text" name="user" value="<?php echo $user?>"><br>
+        Password Usuario<br> <input type="text" name="pass" value="<?php echo $pass?>"><br>
+        Usuario<br> <input type="text" name="email" value="<?php echo $email?>"><br>
+        <br>
+        <input type="submit" value="Guardar" class="btn btn-success btn-primary">
+    <?php
+      }
+    ?>
+      </form>
 </div>
-				  
-		
-		
-		<div class="span8">
-		
-		</div>	
-		</div>	
-		<br/>
-		
+          
+    
+    
+    <div class="span8">
+    
+    </div>  
+    </div>  
+    <br/>
+    
 
 
-		<!--EMPIEZA DESLIZABLE-->
-		
-		 <!--TERMINA DESLIZABLE-->
+    <!--EMPIEZA DESLIZABLE-->
+    
+     <!--TERMINA DESLIZABLE-->
 
 
 
-		
-		
-		</div></div></div></div></div>
+    
+    
+    </div></div></div></div></div>
 
-		
+    
 
 
-		
+    
 
 <!--///////////////////////////////////////////////////Termina cuerpo del documento interno////////////////////////////////////////////-->
 </div>
 
-	</div>
+  </div>
 </div>
 <!-- Footer
       ================================================== -->
@@ -178,5 +191,6 @@ if (@!$_SESSION['user']) {
     <script src="../js/saphv2.js"></script>
   </body>
 </html>
+
 
 

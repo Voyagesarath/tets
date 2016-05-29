@@ -8,7 +8,7 @@ if (@!$_SESSION['user']) {
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Oficina Editorial- ITH -</title>
+    <title>Oficina Editorial ITH </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
 
@@ -20,17 +20,9 @@ if (@!$_SESSION['user']) {
     <link href="../css/responsive.css" rel="stylesheet">
     <link href="../saphv2.css" rel="stylesheet">
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-
+    <script src="../js/myjava.js"></script>
+    <script src="../js/jquery.js"></script>
     <link rel="shortcut icon" href="../images/favicon.ico">
-    <script type="text/javascript">
-    function confirmation() {
-    if(confirm("Realmente desea eliminar?"))
-    {
-        return true;
-    }
-    return false;
-    }
-    </script>
     </head>
 <header class="header">
   <div class="container">
@@ -50,7 +42,7 @@ if (@!$_SESSION['user']) {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="admin.php">Panel administrativo</a>
+      <a class="navbar-brand" href="admin.php">Panel Administrativo</a>
     </div>
        
 
@@ -60,7 +52,7 @@ if (@!$_SESSION['user']) {
     </form>
           <ul class="nav pull-right">
         <li><a href="">Bienvenido <strong><?php echo $_SESSION['user'];?></strong> </a></li>
-          <li><a href="../php/desconectar.php"> Cerrar Cesión </a></li>       
+          <li><a href="../php/desconectar.php"> Cerrar Sesión </a></li>       
     </ul>
   </div><!-- /.container-fluid -->
 </nav>
@@ -96,7 +88,7 @@ if (@!$_SESSION['user']) {
     <!-- panel -->
         <div class="panel panel-default">
          <div class="panel-heading">
-           <i class="fa fa-users"></i> Administración de usuarios
+           <i class="fa fa-users"></i> Administración de Usuarios
            <a data-toggle="modal" data-target="#myModal" class="pull-right"><i class="fa fa-user-plus"></i></a>
          </div>
           <div class="panel-body">
@@ -123,7 +115,7 @@ if (@!$_SESSION['user']) {
         
       <?php 
          while($arreglo=mysql_fetch_array($query)){
-            echo "<tr class='success'>";
+            echo "<tr id='tr".$arreglo[0]."' class='success'>";
               echo "<td>$arreglo[0]</td>";
               echo "<td>$arreglo[1]</td>";
               echo "<td>$arreglo[2]</td>";
@@ -131,22 +123,13 @@ if (@!$_SESSION['user']) {
               echo "<td>$arreglo[4]</td>";
 
               echo "<td><a href='actualizar.php?id=$arreglo[0]'><img src='../images/actualizar.gif' class='img-rounded'></td>";
-              echo "<td><a href='users.php?id=$arreglo[0]&idborrar=2'><img src='../images/eliminar.png' class='img-rounded'/></a></td>";
+              echo "<td><a id='".$arreglo[0]."' onclick='eliminarUsuario(".$arreglo[0].")'><img src='../images/eliminar.png' class='img-rounded'/></a></td>";
 
-    
+            
           echo "</tr>";
         }
 
         echo "</table>";
-
-          extract($_GET);
-          if(@$idborrar==2){
-              $sqlborrar="DELETE FROM login WHERE id=$id";
-              $resborrar=mysql_query($sqlborrar);
-              echo '<script>alert("REGISTRO ELIMINADO")</script> ';
-              echo "<script>location.href='users.php'</script>";
-            }
-
 
       ?>
       <section align="right">
