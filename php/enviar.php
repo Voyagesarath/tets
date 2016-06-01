@@ -17,7 +17,6 @@ $clave = $_POST['clave'];
 $fecha = date('Y-m-d');
 $estatus = "Pendiente";
 
-echo $nombre.','.$departamento.','.$num_copias.','.$fecha.','.$clave.','.$estatus;
 $mensaje = $_POST['mensaje'] ."\nNumero de Copias: ".$num_copias."\nClave: ".$clave."\n Fecha: ".$fecha;
 
 mysql_query("INSERT INTO solicitudes_maestros (departamento, maestro, num_copias, clave, fecha, estatus) VALUES ('$departamento','$nombre','$num_copias','$clave','$fecha', '$estatus')", $conexion);
@@ -37,6 +36,7 @@ $asunto = 'Asunto del mail recibido';
 if(mail($destino, $asunto, utf8_decode($contenido), $header))
 {
 	echo '<script>alert("Correo enviado con exito")</script>';
+	echo "<script>location.href='../vistas/principal-maestros.php'</script>";
 }
 else
 {
