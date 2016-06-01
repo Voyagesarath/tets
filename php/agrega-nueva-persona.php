@@ -6,6 +6,7 @@ if (@!$_SESSION['user']) {
 }
 else{
 	include("connect_db.php");
+$pass = "iTh12345";	
 $nombre=$_POST['nombre'];
 if(strlen($nombre) < 10 ){
 
@@ -21,7 +22,7 @@ $query = mysql_query($query_string) or die(mysql_error());
 while ($row = mysql_fetch_assoc($query)) {
 	$nomdepa= $row['Nom_Departamento'];
 }
-	mysql_query("INSERT INTO personal (id_personal, Nom_Personal, Nom_Departamento, Correo_Electronico, ID_Departamento) VALUES ('$_POST[id]','$_POST[nombre]','$nomdepa','$_POST[email]', '$departamento')", $conexion);
+	mysql_query("INSERT INTO personal (id_personal, Nom_Personal, Nom_Departamento, Correo_Electronico, ID_Departamento, password) VALUES ('$_POST[id]','$_POST[nombre]','$nomdepa','$_POST[email]', '$departamento', '$pass')", $conexion);
 
 	echo '<script>alert("Datos Guardados Con Exito")</script> ';
 		

@@ -116,7 +116,7 @@ if(mysql_num_rows($registro)>0){
 				<td style="color: #837e7e">'.$registro2['clave'].'</td>
 				<td style="color: #837e7e">'.fechaNormal($registro2['fecha']).'</td>
 				<td style="color: #837e7e">'.$registro2['estatus'].'</td>
-				<td><a href="../php/actualizarpendiente.php?id=('.$registro2['id_solicitud'].');" class="glyphicon glyphicon-ok"></a>
+				<td align="center"><a href="genera-solicitud-pendiente.php?id=('.$registro2['id_solicitud'].');" class="glyphicon glyphicon-new-window"></a>      <a href="../php/actualizarpendiente.php?id=('.$registro2['id_solicitud'].');" class="glyphicon glyphicon-ok"></a></td>
 				</tr>';
 	}
 }else{

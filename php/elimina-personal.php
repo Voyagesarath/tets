@@ -32,7 +32,7 @@ echo '<table class="table table-striped table-condensed table-hover">
 				<td>'.$registro2['Nom_Personal'].'</td>
 				<td>'.$registro2['Nom_Departamento'].'</td>
 				<td>'.$registro2['Correo_Electronico'].'</td>
-				<td><a href="../vistas/actualizarpersonal.php?id=('.$registro2['id_personal'].');" class="glyphicon glyphicon-edit"></a> <a href="javascript:eliminarProducto('.$registro2['id_personal'].');" class="glyphicon glyphicon-remove-circle"></a></td>
+				<td><a href="../vistas/actualizarpersonal.php?id=('.$registro2['id_personal'].');" class="glyphicon glyphicon-edit"></a> <a href="../vistas/reporte-usuario.php?nombre='.$registro2['Nom_Personal'].';" class="glyphicon glyphicon-th-list"></a> <a href="javascript:eliminarProducto('.$registro2['id_personal'].');" class="glyphicon glyphicon-remove-circle"></a></td>
 				</tr>';
 	}
 echo '</table>';
