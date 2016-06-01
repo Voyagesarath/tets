@@ -16,6 +16,14 @@ session_start();
 		}
 	}
 
+	$sql3=mysql_query("SELECT * FROM personal WHERE Correo_Electronico ='$username'");
+	if($f3=mysql_fetch_array($sql3)){
+		if($pass==$f3['password']){
+			$_SESSION['id_personal']=$f3['id_personal'];
+			$_SESSION['Nom_Personal']=$f3['Nom_Personal'];
+			echo "<script>location.href='../vistas/principal-maestros.php'</script>";
+		}
+	}
 
 	$sql=mysql_query("SELECT * FROM login WHERE email='$username'");
 	if($f=mysql_fetch_array($sql)){
@@ -35,4 +43,6 @@ session_start();
 		echo "<script>location.href='../index.php'</script>";	
 
 	}
+	
+
 ?>

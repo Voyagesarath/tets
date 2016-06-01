@@ -95,7 +95,8 @@ body,td,th {
         <h4 align="center">Genera Reportes de Servicios</h4>
         <div class="row-fluid">
         <p align="center">
-          Para generar un reporte general de un usuario en especifico da clic <a href="reporte-usuario.php">aqui</a>.
+          Para generar un reporte general de un "personal" en especifico da clic <a href="reporte-usuario.php">aqui</a>.<br><br>
+          Para generar un reporte general por "departamento" en especifico da clic <a href="reporte-departamento.php">aqui</a>.
         </p>
         
 

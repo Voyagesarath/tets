@@ -3,8 +3,8 @@
 
 // Recibimos por POST los datos procedentes del formulario   
 include("connect_db.php");
-$fecha = date('Y-m-d');
-
+//$fecha = date('Y-m-d');
+$fecha = $_POST['fecha'];
   
 //$con=mysql_connect($host,$user,$pass) or die ("Problemas al conectar");
 //mysql_select_db($baseDatos,$con)or die(mysql_error());

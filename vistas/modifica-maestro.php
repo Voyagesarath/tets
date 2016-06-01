@@ -1,39 +1,24 @@
 <!DOCTYPE html>
 <?php
-		session_start();
-if (@!$_SESSION['user']) {
+session_start();
+if (@!$_SESSION['Nom_Personal']) {
 	header("Location:../index.php");
-}else {
-include("../php/connect_db.php");
 }
-?>
-
+?>		
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Editorial ITH</title>
+    <title>Oficina Editorial - ITH -</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <link rel="stylesheet" type="text/css" href="../css/estilos.css">
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+
     <link rel="shortcut icon" href="../images/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
-    <script type="text/javascript">
-            $("document").ready(function(){
-                $("#Departamento").load("../php/departamentos.php");
-                $("#Departamento").change(function(){
-                	var id = $("#Departamento").val();
-                	$.get("../php/maestros.php",{param_id:id})
-                	.done(function(data){
-                		$("#maestro").html(data);
-                	})
-                	}) 
-            })
-    </script>
   </head>
   <style type="text/css">
 body {
@@ -41,7 +26,7 @@ body {
 	
 }
 body,td,th {
-	color: #FFF;
+	color: #00000;
 }
 
 </style>
@@ -55,13 +40,12 @@ body,td,th {
 <table width="100%" border="0">
   <tr>
     <td>&nbsp;</td>
-    <!--<td width="96%" align="center"><img src="editorial.png" width="820" height="100" /></td>-->
     <td>&nbsp;</td>
   </tr>
 <div class="container">
 <header class="header">
 <div class="row">
-	</div>
+</div>
 </header>
 
   <!-- Navbar
@@ -73,7 +57,7 @@ body,td,th {
 	<div class="container">
 	  <div class="nav-collapse">
 		<ul class="nav">
-			<li class=""><a href="principal.php">Principal</a></li>
+			<li class=""><a href="principal-maestros.php">Principal</a></li>
 			 
 	
 		</ul>
@@ -81,7 +65,7 @@ body,td,th {
 		
 		</form>
 		<ul class="nav pull-right">
-		<li><a href="">Bienvenido <strong><?php echo $_SESSION['user'];?></strong> </a></li>
+		<li><a href="">Bienvenido <strong><?php echo $_SESSION['Nom_Personal'];?></strong> </a></li>
 			  <li><a href="../php/desconectar.php"> Cerrar Cesión </a></li>			 
 		</ul>
 	  </div><!-- /.nav-collapse -->
@@ -99,44 +83,44 @@ body,td,th {
 		<div class="caption">
 		
 <!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
-		<h2 style="color: #605C5C">Servicio de Copiado</h2>	
+		<h2> Administración de Personal Registrado</h2>	
 		<div class="well well-small">
 		<hr class="soft"/>
-		<h4 style="color: #837E7E"; align="center">Nuevo Servicio</h4>
+		<h4 align="center">Edición de Personal</h4>
 		<div class="row-fluid">
 		
+		<?php
+		extract($_GET);
+		require("../php/connect_db.php");
 
-		<form name="form1" action="../php/agrega-serv-nuevo.php" method="post">
-		<p align="center">
-		    <b style="color: #837E7E">Fecha</b><br>
-		    <input type="date" name="fecha" style="border-radius:15px;" align="center" required><br>
-			<b style="color: #837E7E">Departamento</b><br>
-			<select id=Departamento name="Nom_Departamento" style="border-radius:15px;" required>
-				
-			</select>
+		$sql="SELECT * FROM personal WHERE Nom_Personal= '".$_SESSION['Nom_Personal']."'";
+		$ressql=mysql_query($sql);
+		while ($row=mysql_fetch_row ($ressql)){
+		    	$id=$row[0];
+		    	$Nombre=$row[1];
+		    	$Departamento=$row[2];
+		    	$email=$row[3];
+		    	$contra = $row[4];
+		    }
 
-            <br>
-			<b style="color: #837E7E">Maestro</b><br> 
-			<select id=maestro name="maestro"style="border-radius:15px;" required>
-				
 
-			</select>>
-       
-            <br>
-			<b style="color: #837E7E">Numero de Copias</b><br> <input type="number" min="0" max="100000" id="num_copias" name="num_copias" style="border-radius:15px;" align="center" required><br>
-</select><br>
-			<b style="color: #837E7E">Clave</b><br> <select type="text" id="clave" name="clave" style="border-radius:15px;" required>
-			   <option value="Examenes">Examenes</option>
-			   <option value="Material Didactico">Material Didactico</option>
-			   <option value="Documentos Personales">Docs. Personales</option>
-			   <option value="Practicas de Laboratorio">Practicas de Laboratorio</option>
-			   <option value="Documentos Operativos">Documentos Operativos</option>
-</select><br>
-		</p>
-        <input type="submit" name="BtnGuardar" value="Guardar"/>
-	    </form>
-        
-				 
+
+		?>
+		<div align="center">
+		<form name="form1" action="../php/ejecuta-actualizar-maestro.php" method="post">
+				Id<br><input type="text" name="id" value= "<?php echo $id ?>" readonly="readonly"><br>
+				Nombre<br> <input type="text" name="Nombre" value="<?php echo $Nombre?>" readonly="readonly"><br>
+				Departamento<br> <input type="text" name="Departamento" value="<?php echo $Departamento?>" readonly="readonly"><br>
+				Correo Electronico<br> <input type="email" name="email" value="<?php echo $email?>" required><br>
+				<br>
+				Contraseña<br>
+				<input type="password" value="<?php echo $contra ?>" name="pass" minlength="6" maxlength="16" required>
+		</div>
+				<input type="submit" name="Guardar" value="Guardar" class="btn btn-success btn-primary">
+		</form>
+
+				  
+		
 		
 		<div class="span8">
 		
@@ -147,7 +131,7 @@ body,td,th {
 
 
 		<!--EMPIEZA DESLIZABLE-->
-
+		
 		 <!--TERMINA DESLIZABLE-->
 
 

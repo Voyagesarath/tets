@@ -45,7 +45,7 @@ body,td,th {
 		<table border="0">
 
 		<tr><td><label style="font-size: 14pt; color: #605C5C" ><b>Usuario: </b></label></td>
-			<td width=80> <input class="form-group has-success" style="border-radius:15px;" type="text" name="mail" maxlength="16" required ></td></tr>
+			<td width=80> <input class="form-group has-success" style="border-radius:15px;" type="text" name="mail" minlength="6" maxlength="30" required ></td></tr>
 		<tr><td><label style="font-size: 14pt; color: #605C5C"><b>Contraseña: </b></label></td>
 			<td witdh=80><input style="border-radius:15px;" type="password" name="pass" maxlength="16" required></td></tr>
 		<tr><td></td>

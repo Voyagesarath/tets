@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 session_start();
-if (@!$_SESSION['user']) {
+if (@!$_SESSION['Nom_Personal']) {
 	header("Location:../index.php");
 }
 ?>
@@ -57,7 +57,7 @@ body,td,th {
 	<div class="container">
 	  <div class="nav-collapse">
 		<ul class="nav">
-			<li class=""><a href="principal.php">Principal</a></li>
+			<li class=""><a href="principal-maestros.php">Principal</a></li>
 			 
 	
 		</ul>
@@ -65,7 +65,7 @@ body,td,th {
 		
 		</form>
 		<ul class="nav pull-right">
-		<li><a href="">Bienvenido <strong><?php echo $_SESSION['user'];?></strong> </a></li>
+		<li><a href="">Bienvenido <strong><?php echo $_SESSION['Nom_Personal'];?></strong> </a></li>
 			  <li><a href="../php/desconectar.php"> Cerrar Cesión </a></li>			 
 		</ul>
 	  </div><!-- /.nav-collapse -->
@@ -77,11 +77,11 @@ body,td,th {
 				<h2 style="color: #605C5C"; align="center">Menú</h2>
 				   
 				   <table align="center" border="0" style="width:80%">
-				   <tr><td><img src="../images/usuarios.png"><form align:"left"></form><a href="usuarios.php">Personal</a></td>
-				   <td><img src="../images/copiado.png"><form align:"center"></form><a href="servicio-copiado.php">Servicio de Copiado</a></td>
-				   <td><img src="../images/reportes.png"><form align:"center"></form><a href="crea-reportes.php">Reportes Generales</a></td>
-				   <td><img src="../images/arroba.png"><form align:"center"></form><a href="solicitudes-pendientes.php">Peticiones de Servicio</a></td>
-				     </tr>
+				   <tr>
+				   <td><img src="../images/copiado.png"><form align:"center"></form><a href="formulario.php">Envia Nuevo Servicio</a></td>
+				   <td><img src="../images/reportes.png"><form align:"center"></form><a href="../php/solicitudes-realizadas.php">Solicitudes Realizadas</a></td>
+				   <td><img src="../images/usuarios.png"><form align:"left"></form><a href="modifica-maestro.php">Modifica</a></td>
+				   </tr>
 				   </table> 
 		
 

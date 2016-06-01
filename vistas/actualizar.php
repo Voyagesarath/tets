@@ -127,7 +127,7 @@ if (@!$_SESSION['user']) {
         Id<br><input type="text" name="id" value= "<?php echo $id ?>" readonly="readonly"><br>
         Nombre<br> <input type="text" name="user" value="<?php echo $user?>"><br>
         Usuario<br> <input type="text" name="email" value="<?php echo $email?>"><br>
-        Password administrador<br> <input type="text" name="pasadmin" value="<?php echo $pasadmin?>"><br>
+        Password administrador<br> <input type="text" name="passadmin" value="<?php echo $pasadmin?>"><br>
         
         <br>
         <input type="submit" value="Guardar" class="btn btn-success btn-primary">
