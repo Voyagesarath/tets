@@ -108,10 +108,10 @@ body,td,th {
 		?>
 		<div align="center">
 		<form name="form1" action="../php/ejecuta-actualizar-maestro.php" method="post">
-				Id<br><input type="text" name="id" value= "<?php echo $id ?>" readonly="readonly"><br>
-				Nombre<br> <input type="text" name="Nombre" value="<?php echo $Nombre?>" readonly="readonly"><br>
-				Departamento<br> <input type="text" name="Departamento" value="<?php echo $Departamento?>" readonly="readonly"><br>
-				Correo Electronico<br> <input type="email" name="email" value="<?php echo $email?>" required><br>
+				Id<br><input type="text" name="id" minlength="0" maxlength="10000" value= "<?php echo $id ?>" readonly="readonly"><br>
+				Nombre<br> <input type="text" name="Nombre" minlength="8" maxlength="50" value="<?php echo $Nombre?>" readonly="readonly"><br>
+				Departamento<br> <input type="text" name="Departamento" minlength="8" maxlength="30" value="<?php echo $Departamento?>" readonly="readonly"><br>
+				Correo Electronico<br> <input type="email" name="email" minlength="8" maxlength="30" value="<?php echo $email?>" required><br>
 				<br>
 				Contraseña<br>
 				<input type="password" value="<?php echo $contra ?>" name="pass" minlength="6" maxlength="16" required>

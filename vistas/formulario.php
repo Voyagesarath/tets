@@ -163,16 +163,16 @@ body,td,th {
         <form method="POST" action="../php/enviar.php" name="mensaje_f" enctype="multipart/form-data"> 
 
             <p>Nombre: <br />  
-            <input class="campos" value="<?php echo $nombre ?>" readonly="readonly" type="text" name="nombre"></p> 
+            <input class="campos" value="<?php echo $nombre ?>" readonly="readonly" minlength="8" maxlength="50" type="text" name="nombre"></p> 
 
             <p>Departamento: <br />  
-            <input class="campos" type="text" value="<?php echo $departamento ?>" readonly="readonly" name="departamento"></p>
+            <input class="campos" type="text" value="<?php echo $departamento ?>" readonly="readonly" minlength="8" maxlength="30" name="departamento"></p>
 
             <p>Numero de Copias: <br />  
             <input class="campos" type="number" min="0" max="10000" name="num_copias" required=""></p>
 
             <p>Tipo de Servicio: <br />  
-            <select class="campos" type="text" name="clave" style="border-radius:15px;" required>
+            <select class="campos" type="text" name="clave" style="border-radius:15px;" minlength="8" maxlength="30" required>
                <option value="Examenes">Examenes</option>
                <option value="Material Didactico">Material Didactico</option>
                <option value="Documentos Personales">Docs. Personales</option>
@@ -181,13 +181,13 @@ body,td,th {
             </select></p>
              
             <p>E-mail: <br />  
-            <input class="campos" type="email" value="<?php echo $email ?>" readonly="readonly" name="email"></p>  
+            <input class="campos" type="email" minlength="8" maxlength="30" value="<?php echo $email ?>" readonly="readonly" name="email"></p>  
              
             <p>Asunto: <br />  
-            <input class="campos" type="text" value="<?php echo $_SESSION['Nom_Personal']." - ". date('Y-m-d') ?>" readonly name="asunto"></p>  
+            <input class="campos" type="text" minlength="8" maxlength="30" value="<?php echo $_SESSION['Nom_Personal']." - ". date('Y-m-d') ?>" readonly name="asunto"></p>  
              
             <p>Mensaje:<br />  
-            <textarea class="campos" rows="10" name="mensaje"></textarea></p> 
+            <textarea class="campos" rows="10" minlength="8" maxlength="300" name="mensaje" required=""></textarea></p> 
              
             <p>Adjunta un archivo: <br /> 
             <input class="campos" type="file" name="archivo" size="20"></p> 
